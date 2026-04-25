@@ -1,0 +1,13 @@
+name             = "trr-follower-counts"
+main             = "follower-counts.js"
+compatibility_date = "2024-09-23"
+
+# Plain (non-secret) variables — safe to commit
+[vars]
+INSTAGRAM_FALLBACK = "228000"
+TIKTOK_FALLBACK    = "228000"
+
+# ── Secrets — set these via the Cloudflare dashboard, NOT here ──
+# INSTAGRAM_TOKEN
+# INSTAGRAM_USER_ID
+# TIKTOK_TOKEN  (optional, add when ready)

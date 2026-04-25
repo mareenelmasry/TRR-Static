@@ -311,14 +311,19 @@ const statObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('[data-target]').forEach(el => statObserver.observe(el));
 
 /* ── Follower count animation ── */
+
+// After deploying the Cloudflare Worker, paste its URL here:
+// e.g. 'https://trr-follower-counts.YOUR-SUBDOMAIN.workers.dev'
+const WORKER_URL = '';
+
 function formatFollowers(n) {
   if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
   if (n >= 1_000)     return (n / 1_000).toFixed(1) + 'K';
   return n.toLocaleString();
 }
 
-function animateFollower(el) {
-  const target   = parseInt(el.dataset.count, 10);
+function animateFollower(el, liveCount) {
+  const target   = liveCount ?? parseInt(el.dataset.count, 10);
   const duration = 3500;
   const start    = performance.now();
 
@@ -333,8 +338,26 @@ function animateFollower(el) {
 }
 
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.querySelectorAll('[data-count]').forEach(animateFollower);
+  setTimeout(async () => {
+    // Try to fetch live counts from the Cloudflare Worker
+    if (WORKER_URL) {
+      try {
+        const res  = await fetch(WORKER_URL);
+        const data = await res.json();
+
+        const igEls = document.querySelectorAll('[data-platform="instagram"] [data-count]');
+        const ttEls = document.querySelectorAll('[data-platform="tiktok"] [data-count]');
+        const totalEls = document.querySelectorAll('.follower-total-num[data-count]');
+
+        igEls.forEach(el => animateFollower(el, data.instagram));
+        ttEls.forEach(el => animateFollower(el, data.tiktok));
+        totalEls.forEach(el => animateFollower(el, data.instagram + data.tiktok));
+        return;
+      } catch (_) { /* worker unavailable — fall through to hardcoded */ }
+    }
+
+    // Fallback: animate from hardcoded data-count values
+    document.querySelectorAll('[data-count]').forEach(el => animateFollower(el));
   }, 1600);
 });
 
