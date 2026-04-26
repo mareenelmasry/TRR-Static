@@ -974,7 +974,8 @@ img { display: block; max-width: 100%; }
 .ba-lbl.mint { color: rgba(103,193,159,0.7); }
 .ba-val { color: rgba(255,255,255,0.88); font-weight: 500; }
 .ba-val.mint { color: var(--mint); }
-.ba-arrow { color: var(--mint); font-weight: 700; font-size: 1rem; }
+.ba-arrow { color: var(--mint); font-weight: 700; font-size: 1rem; display: inline-block; }
+[dir="rtl"] .ba-arrow { transform: scaleX(-1); }
 
 /* Content types */
 .ct-grid {
