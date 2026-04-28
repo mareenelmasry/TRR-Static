@@ -36,7 +36,7 @@ const TRANSLATIONS = {
     portfolioBadge:  'Our Work',
     portfolioTitleL1:'Content that',
     portfolioTitleL2:'breaks the algorithm.',
-    portfolioSub:    "From storytelling that moves people to skits that go viral — we've cracked the code on what makes content spread.",
+    portfolioSub:    "From storytelling that moves people to skits that go viral, we've cracked the code on what makes content spread.",
     stat80Label:     'Clients Served',
     stat80Sub:       'in just 15 months',
     stat50Label:     'Total Reach',
@@ -46,7 +46,7 @@ const TRANSLATIONS = {
     stat15Label:     'Industries',
     stat15Sub:       'covered',
     realResultsTitle:'Real Results',
-    realResultsSub:  'Before & after — what happens when brands work with us.',
+    realResultsSub:  'Before & after: what happens when brands work with us.',
     parisCat:        'Clothing Brand',
     dtxCat:          'Digital Printing',
     tapiocaCat:      'Bubble Tea',
@@ -60,12 +60,12 @@ const TRANSLATIONS = {
     ct3Title:        'Voxpop',
     ct3Desc:         'Street interviews reinvented. We changed the style and made it more youthful, raw, and shareable.',
     ct4Title:        'UGC',
-    ct4Desc:         'User generated content at its best — in the most authentic form. Real people, real results.',
+    ct4Desc:         'User generated content at its best, in the most authentic form. Real people, real results.',
     portCta:         'Get a Free Quote →',
     portCtaNote:     'One click away',
     aboutLine1:      'Built for brands that',
     aboutLine2:      'refuse to blend in.',
-    aboutDesc:       "We combine creative instinct with data-driven strategy to build content ecosystems that don't just perform — they dominate.",
+    aboutDesc:       "We combine creative instinct with data-driven strategy to build content ecosystems that don't just perform; they dominate.",
     statsViews:      'Views Generated',
     statsBrands:     'Brands Scaled',
     statsRoas:       'Average ROAS',
@@ -75,7 +75,7 @@ const TRANSLATIONS = {
     ctaQuestion:     'Are you ready?',
     ctaTitle1:       "Let's build something",
     ctaTitle2:       'unforgettable.',
-    ctaDesc:         "Whether you need viral content, a full rebrand, or a complete digital ecosystem — we're ready when you are.",
+    ctaDesc:         "Whether you need viral content, a full rebrand, or a complete digital ecosystem: we're ready when you are.",
     ctaBtn1:         'Get Your Free Quote',
     ctaBtn2:         'Join Our Team',
     contactTitle:    'Get Started',
@@ -90,6 +90,9 @@ const TRANSLATIONS = {
     modalWatchLabel: 'Watch Example',
     modalWatchSub:   'View on Instagram',
     modalQuote:      'Get a Free Quote',
+    menuToggle:      'Toggle menu',
+    menuClose:       'Close menu',
+    modalClose:      'Close',
   },
   ar: {
     pageTitle:       'The Reel Recipe | وكالة المحتوى الفيروسي',
@@ -123,7 +126,7 @@ const TRANSLATIONS = {
     portfolioBadge:  'أعمالنا',
     portfolioTitleL1:'محتوى يكسر',
     portfolioTitleL2:'الخوارزميات.',
-    portfolioSub:    'من القصص التي تحرك المشاعر إلى السكتشات الفيروسية — اكتشفنا سر انتشار المحتوى.',
+    portfolioSub:    'من القصص التي تحرك المشاعر إلى السكتشات الفيروسية، اكتشفنا سر انتشار المحتوى.',
     stat80Label:     'عميل خدمناهم',
     stat80Sub:       'في 15 شهرًا فقط',
     stat50Label:     'إجمالي الوصول',
@@ -133,7 +136,7 @@ const TRANSLATIONS = {
     stat15Label:     'قطاع',
     stat15Sub:       'تغطيها خدماتنا',
     realResultsTitle:'نتائج حقيقية',
-    realResultsSub:  'قبل وبعد — ما يحدث عندما تعمل معنا.',
+    realResultsSub:  'قبل وبعد: ما يحدث عندما تعمل معنا.',
     parisCat:        'علامة ملابس',
     dtxCat:          'طباعة رقمية',
     tapiocaCat:      'مشروبات تابيوكا',
@@ -147,12 +150,12 @@ const TRANSLATIONS = {
     ct3Title:        'مقابلات الشارع',
     ct3Desc:         'مقابلات الشارع بأسلوب مختلف. غيّرنا الطريقة وجعلناها أكثر شبابية وحيوية وقابلية للمشاركة.',
     ct4Title:        'محتوى المستخدمين',
-    ct4Desc:         'محتوى المستخدمين في أفضل صوره — بأكثر الأشكال أصالة. أشخاص حقيقيون، نتائج حقيقية.',
+    ct4Desc:         'محتوى المستخدمين في أفضل صوره، بأكثر الأشكال أصالة. أشخاص حقيقيون، نتائج حقيقية.',
     portCta:         'احصل على عرض مجاني ←',
     portCtaNote:     'بنقرة واحدة فقط',
     aboutLine1:      'بُنينا للعلامات التجارية',
     aboutLine2:      'التي ترفض أن تكون عادية.',
-    aboutDesc:       'نجمع بين الحدس الإبداعي والاستراتيجية المبنية على البيانات لبناء منظومات محتوى لا تؤدي فحسب — بل تهيمن.',
+    aboutDesc:       'نجمع بين الحدس الإبداعي والاستراتيجية المبنية على البيانات لبناء منظومات محتوى لا تؤدي فحسب؛ بل تهيمن.',
     statsViews:      'مشاهدة حُققت',
     statsBrands:     'علامة تجارية طوّرناها',
     statsRoas:       'متوسط العائد الإعلاني',
@@ -162,7 +165,7 @@ const TRANSLATIONS = {
     ctaQuestion:     '!هل أنت مستعد؟',
     ctaTitle1:       'لنبني شيئًا',
     ctaTitle2:       'لا يُنسى.',
-    ctaDesc:         'سواء كنت تحتاج محتوى فيروسيًا أو إعادة بناء كاملة للعلامة أو منظومة رقمية متكاملة — نحن جاهزون متى كنت.',
+    ctaDesc:         'سواء كنت تحتاج محتوى فيروسيًا أو إعادة بناء كاملة للعلامة أو منظومة رقمية متكاملة، نحن جاهزون متى كنت.',
     ctaBtn1:         'احصل على عرضك المجاني',
     ctaBtn2:         'انضم إلى فريقنا',
     contactTitle:    'ابدأ معنا',
@@ -177,6 +180,9 @@ const TRANSLATIONS = {
     modalWatchLabel: 'شاهد مثالًا',
     modalWatchSub:   'عرض على انستغرام',
     modalQuote:      'احصل على عرض مجاني',
+    menuToggle:      'القائمة',
+    menuClose:       'إغلاق القائمة',
+    modalClose:      'إغلاق',
   },
 };
 
@@ -210,6 +216,17 @@ function applyLanguage(lang) {
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  const menuBtn = document.getElementById('menuBtn');
+  if (menuBtn) menuBtn.setAttribute('aria-label', t.menuToggle);
+  document.querySelectorAll('.mobile-close').forEach(el => el.setAttribute('aria-label', t.menuClose));
+  document.querySelectorAll('.modal-close').forEach(el => el.setAttribute('aria-label', t.modalClose));
+
+  const svcCards = document.querySelectorAll('.service-card');
+  const svcLabelKeys = ['svcContentTitle', 'svcUgcTitle', 'svcMediaTitle'];
+  svcCards.forEach((card, i) => {
+    if (svcLabelKeys[i] && t[svcLabelKeys[i]]) card.setAttribute('aria-label', t[svcLabelKeys[i]]);
   });
 
   localStorage.setItem('rrLang', lang);
@@ -249,28 +266,6 @@ function closeMobile() {
   navbar.classList.remove('menu-open');
 }
 
-/* ── Particles ── */
-(function spawnParticles() {
-  const container = document.getElementById('particles');
-  const colors = ['#3DE2AA', '#7640E0', '#F472B6'];
-  const sizes  = [5, 3, 2];
-  for (let i = 0; i < 12; i++) {
-    const el = document.createElement('div');
-    el.className = 'particle';
-    const idx = i % 3;
-    const s   = sizes[idx];
-    Object.assign(el.style, {
-      width:  s + 'px',
-      height: s + 'px',
-      top:    (10 + (i * 7) % 80) + '%',
-      left:   (5  + (i * 11) % 90) + '%',
-      background: colors[idx],
-      '--dur':   (3 + i * 0.5) + 's',
-      '--delay': (i * 0.3) + 's',
-    });
-    container.appendChild(el);
-  }
-})();
 
 /* ── Scroll reveal (IntersectionObserver) ── */
 const revealObserver = new IntersectionObserver((entries) => {
@@ -311,19 +306,14 @@ const statObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('[data-target]').forEach(el => statObserver.observe(el));
 
 /* ── Follower count animation ── */
-
-// After deploying the Cloudflare Worker, paste its URL here:
-// e.g. 'https://trr-follower-counts.YOUR-SUBDOMAIN.workers.dev'
-const WORKER_URL = '';
-
 function formatFollowers(n) {
   if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
   if (n >= 1_000)     return (n / 1_000).toFixed(1) + 'K';
   return n.toLocaleString();
 }
 
-function animateFollower(el, liveCount) {
-  const target   = liveCount ?? parseInt(el.dataset.count, 10);
+function animateFollower(el) {
+  const target   = parseInt(el.dataset.count, 10);
   const duration = 3500;
   const start    = performance.now();
 
@@ -338,26 +328,8 @@ function animateFollower(el, liveCount) {
 }
 
 window.addEventListener('load', () => {
-  setTimeout(async () => {
-    // Try to fetch live counts from the Cloudflare Worker
-    if (WORKER_URL) {
-      try {
-        const res  = await fetch(WORKER_URL);
-        const data = await res.json();
-
-        const igEls = document.querySelectorAll('[data-platform="instagram"] [data-count]');
-        const ttEls = document.querySelectorAll('[data-platform="tiktok"] [data-count]');
-        const totalEls = document.querySelectorAll('.follower-total-num[data-count]');
-
-        igEls.forEach(el => animateFollower(el, data.instagram));
-        ttEls.forEach(el => animateFollower(el, data.tiktok));
-        totalEls.forEach(el => animateFollower(el, data.instagram + data.tiktok));
-        return;
-      } catch (_) { /* worker unavailable — fall through to hardcoded */ }
-    }
-
-    // Fallback: animate from hardcoded data-count values
-    document.querySelectorAll('[data-count]').forEach(el => animateFollower(el));
+  setTimeout(() => {
+    document.querySelectorAll('[data-count]').forEach(animateFollower);
   }, 1600);
 });
 
@@ -401,7 +373,7 @@ const services = {
     en: {
       cat:        'Content',
       title:      'UGC',
-      desc:       "User-generated content at its most authentic. We partner with real creators and everyday users to produce raw, relatable content that builds trust and drives conversions — the kind of content that stops the scroll because it doesn't look like an ad.",
+      desc:       "User-generated content at its most authentic. We partner with real creators and everyday users to produce raw, relatable content that builds trust and drives conversions: the kind of content that stops the scroll because it doesn't look like an ad.",
       includes:   ['Creator network & matching', 'Content brief development', 'Raw, authentic production', 'Multi-platform optimization', 'Performance tracking'],
       quoteLabel: 'Get a Free Quote',
       includesTitle: "What's Included",
@@ -409,7 +381,7 @@ const services = {
     ar: {
       cat:        'محتوى',
       title:      'محتوى المستخدمين',
-      desc:       'محتوى المستخدمين في أكثر أشكاله أصالة. نتشارك مع منشئين حقيقيين لإنتاج محتوى خام وقابل للتواصل يبني الثقة ويحفز التحويلات — المحتوى الذي يوقف التمرير لأنه لا يبدو كإعلان.',
+      desc:       'محتوى المستخدمين في أكثر أشكاله أصالة. نتشارك مع منشئين حقيقيين لإنتاج محتوى خام وقابل للتواصل يبني الثقة ويحفز التحويلات: المحتوى الذي يوقف التمرير لأنه لا يبدو كإعلان.',
       includes:   ['شبكة منشئين ومطابقة', 'تطوير موجز المحتوى', 'إنتاج خام وأصيل', 'تحسين متعدد المنصات', 'تتبع الأداء'],
       quoteLabel: 'احصل على عرض مجاني',
       includesTitle: 'ما يشمله الخدمة',
@@ -454,6 +426,8 @@ const services = {
   },
 };
 
+let _modalOpener = null;
+
 function openModal(key) {
   const svc = services[key];
   if (!svc) return;
@@ -462,20 +436,17 @@ function openModal(key) {
   const checkIcon = `<svg class="modal-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="${svc.accentClr}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
 
   const videoSection = svc.video ? `
-    <div style="margin-bottom:1.5rem">
+    <div class="modal-see-it">
       <h4 class="modal-includes-title">${s.seeItTitle || s.includesTitle}</h4>
-      <a href="${svc.video}" target="_blank" rel="noopener noreferrer"
-         style="display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,0.04);backdrop-filter:blur(40px);border:0.5px solid rgba(255,255,255,0.08);border-radius:.75rem;padding:1rem;text-decoration:none;transition:border-color .3s"
-         onmouseover="this.style.borderColor='rgba(255,255,255,0.15)'"
-         onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
-        <div style="display:flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border-radius:.75rem;background:${svc.accentBg};color:${svc.accentClr};flex-shrink:0">
+      <a href="${svc.video}" target="_blank" rel="noopener noreferrer" class="modal-video-link">
+        <div class="modal-video-icon" style="background:${svc.accentBg};color:${svc.accentClr}">
           ${svc.iconSvg}
         </div>
-        <div style="flex:1">
-          <span style="display:block;font-size:.875rem;color:#fff;font-weight:500">${s.videoLabel}</span>
-          <span style="display:block;font-size:.75rem;color:#86868b">${s.videoSub}</span>
+        <div class="modal-video-text">
+          <span class="modal-video-label">${s.videoLabel}</span>
+          <span class="modal-video-sub">${s.videoSub}</span>
         </div>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#86868b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <svg class="modal-video-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </div>
   ` : '';
@@ -485,7 +456,7 @@ function openModal(key) {
       <div class="modal-icon" style="background:${svc.accentBg};color:${svc.accentClr}">${svc.iconSvg}</div>
       <div>
         <span class="modal-cat">${s.cat}</span>
-        <h3 class="modal-title">${s.title}</h3>
+        <h3 class="modal-title" id="modalDialogTitle">${s.title}</h3>
       </div>
     </div>
     <div class="modal-divider" style="background:${svc.gradient}"></div>
@@ -502,27 +473,44 @@ function openModal(key) {
       </div>
     </div>
     ${videoSection}
-    <a href="#contact-form"
-       onclick="closeModal()"
-       style="display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;border-radius:9999px;padding:.875rem;font-size:.875rem;font-weight:500;color:#fff;background:linear-gradient(135deg,rgba(108,86,164,0.85),rgba(133,112,184,0.85));border:0.5px solid rgba(255,255,255,0.2);box-shadow:inset 0 0.5px 0 rgba(255,255,255,0.25),0 4px 16px rgba(108,86,164,0.35);text-decoration:none;transition:transform .2s"
-       onmouseover="this.style.transform='scale(1.03)'"
-       onmouseout="this.style.transform='scale(1)'">
+    <a href="#contact-form" onclick="closeModal()" class="modal-cta-link">
       ${s.quoteLabel}
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
     </a>
   `;
 
+  _modalOpener = document.activeElement;
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+
+  setTimeout(() => {
+    const box = document.getElementById('modalBox');
+    const first = box && box.querySelector('button, a[href]');
+    if (first) first.focus();
+  }, 50);
 }
 
 function closeModal() {
   document.getElementById('modalOverlay').classList.remove('open');
   document.body.style.overflow = '';
+  if (_modalOpener) { _modalOpener.focus(); _modalOpener = null; }
 }
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
+  const overlay = document.getElementById('modalOverlay');
+  if (!overlay.classList.contains('open')) return;
+  if (e.key === 'Escape') { closeModal(); return; }
+  if (e.key !== 'Tab') return;
+  const box = document.getElementById('modalBox');
+  const focusable = Array.from(box.querySelectorAll('button, a[href]'))
+    .filter(el => !el.hasAttribute('disabled'));
+  if (focusable.length < 2) return;
+  const first = focusable[0], last = focusable[focusable.length - 1];
+  if (e.shiftKey) {
+    if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+  } else {
+    if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
 });
 
 /* ── Init language (must run last) ── */
