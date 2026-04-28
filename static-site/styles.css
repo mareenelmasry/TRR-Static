@@ -92,10 +92,14 @@ figure { margin: 0; }
 [dir="rtl"] .cta-hl,
 [dir="rtl"] .svc-name,
 [dir="rtl"] .work-ttl,
-[dir="rtl"] .stat-num,
 [dir="rtl"] .mobile-link {
   font-family: 'VIP Hala', 'Cairo', sans-serif;
   letter-spacing: 0;
+}
+/* Stat numbers stay on Latin font so digits/suffixes render correctly */
+[dir="rtl"] .stat-num {
+  font-family: var(--fd), sans-serif;
+  direction: ltr;
 }
 
 /* ── Layout ── */
@@ -1116,6 +1120,10 @@ figure { margin: 0; }
 /* Mini-stats: border separators on the LEFT (between cells in RTL column flow) */
 [dir="rtl"] .mstat { border-right: none; border-left: 1px solid var(--border); }
 [dir="rtl"] .mstat:last-child { border-left: none; }
+
+/* Stats band: allow shrinking so no block overflows/clips; clean up Arabic label */
+[dir="rtl"] .stat-blk { min-width: 0; }
+[dir="rtl"] .stat-lbl { letter-spacing: 0; text-transform: none; font-size: 12px; }
 
 /* Stats note */
 [dir="rtl"] .stats-note { direction: rtl; }
