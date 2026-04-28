@@ -11,9 +11,9 @@ const TRANSLATIONS = {
     navResults:      'Results',
     navContact:      'Contact',
     navCta:          'Get Started',
-    heroBadge:       'Leading the viral content market',
+    heroBadge:       'MENA content agency',
     heroWord1:       'We',
-    heroWord2:       'make',
+    heroWord2:       ' make',
     heroWord3:       'brands',
     heroViral:       'go viral.',
     heroSub:         'Full-service content agency specializing in viral strategies, performance marketing, and end-to-end digital solutions that drive real results.',
@@ -101,9 +101,9 @@ const TRANSLATIONS = {
     navResults:      'النتائج',
     navContact:      'تواصل',
     navCta:          'ابدأ الآن',
-    heroBadge:       'نحن رواد المحتوى الفيروسي',
+    heroBadge:       'وكالة محتوى MENA',
     heroWord1:       'نصنع',
-    heroWord2:       'علامتك',
+    heroWord2:       ' علامتك',
     heroWord3:       'التجارية',
     heroViral:       'فيروسية.',
     heroSub:         'وكالة محتوى متكاملة متخصصة في استراتيجيات الانتشار الفيروسي والتسويق الرقمي وحلول شاملة تحقق نتائج حقيقية.',
@@ -218,6 +218,13 @@ function applyLanguage(lang) {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
 
+  /* Single-button cycle (desktop nav) */
+  const langCycleBtn = document.getElementById('langCycle');
+  if (langCycleBtn) {
+    langCycleBtn.textContent = lang === 'en' ? 'AR' : 'EN';
+    langCycleBtn.setAttribute('aria-label', lang === 'en' ? 'Switch to Arabic' : 'Switch to English');
+  }
+
   const menuBtn = document.getElementById('menuBtn');
   if (menuBtn) menuBtn.setAttribute('aria-label', t.menuToggle);
   document.querySelectorAll('.mobile-close').forEach(el => el.setAttribute('aria-label', t.menuClose));
@@ -229,22 +236,39 @@ function applyLanguage(lang) {
     if (svcLabelKeys[i] && t[svcLabelKeys[i]]) card.setAttribute('aria-label', t[svcLabelKeys[i]]);
   });
 
+  /* Close & clear accordion panels so they re-render in the new language */
+  document.querySelectorAll('.svc-row[data-service]').forEach(r => {
+    r.setAttribute('aria-expanded', 'false');
+    r.classList.remove('active');
+  });
+  document.querySelectorAll('.svc-panel').forEach(p => {
+    p.classList.remove('open');
+    const inner = p.querySelector('.svc-panel-inner');
+    if (inner) inner.innerHTML = '';
+  });
+
   localStorage.setItem('rrLang', lang);
 }
 
+/* ── Language button listeners ── */
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
 });
+
+const langCycleBtn = document.getElementById('langCycle');
+if (langCycleBtn) {
+  langCycleBtn.addEventListener('click', () => applyLanguage(currentLang === 'en' ? 'ar' : 'en'));
+}
 
 /* ── Year (fallback, handled in applyLanguage too) ── */
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ── Navbar scroll effect ── */
-const navbar    = document.getElementById('navbar');
-const menuBtn   = document.getElementById('menuBtn');
-const iconMenu  = document.getElementById('iconMenu');
-const iconX     = document.getElementById('iconX');
+const navbar     = document.getElementById('navbar');
+const menuBtn    = document.getElementById('menuBtn');
+const iconMenu   = document.getElementById('iconMenu');
+const iconX      = document.getElementById('iconX');
 const mobileMenu = document.getElementById('mobileMenu');
 
 window.addEventListener('scroll', () => {
@@ -272,7 +296,7 @@ const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) e.target.classList.add('visible');
   });
-}, { threshold: 0.1, rootMargin: '-50px' });
+}, { threshold: 0.12, rootMargin: '-30px' });
 
 document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
 
@@ -280,7 +304,7 @@ document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe
 function animateNumber(el) {
   const target   = parseInt(el.dataset.target, 10);
   const suffix   = el.dataset.suffix || '';
-  const duration = 2000;
+  const duration = 3200;
   const start    = performance.now();
 
   function step(now) {
@@ -301,7 +325,7 @@ const statObserver = new IntersectionObserver((entries) => {
       animateNumber(e.target);
     }
   });
-}, { threshold: 0.3 });
+}, { threshold: 0.5 });
 
 document.querySelectorAll('[data-target]').forEach(el => statObserver.observe(el));
 
@@ -330,7 +354,7 @@ function animateFollower(el) {
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.querySelectorAll('[data-count]').forEach(animateFollower);
-  }, 1600);
+  }, 400);
 });
 
 /* ── Service modal data ── */
@@ -426,6 +450,72 @@ const services = {
   },
 };
 
+/* ── Service accordion ── */
+function renderServicePanel(key, inner) {
+  const svc = services[key];
+  if (!svc) return;
+  const s = { ...svc[currentLang], ...svc };
+
+  const checkIcon = (clr) => `<svg class="svc-panel-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="${clr}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
+
+  const videoSection = svc.video ? `
+    <a href="${svc.video}" target="_blank" rel="noopener noreferrer" class="svc-panel-video">
+      <div class="svc-panel-video-icon" style="background:${svc.accentBg};color:${svc.accentClr}">${svc.iconSvg}</div>
+      <div>
+        <span class="svc-panel-video-label">${s.videoLabel || ''}</span>
+        <span class="svc-panel-video-sub">${s.videoSub || ''}</span>
+      </div>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="margin-left:auto;flex-shrink:0" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+  ` : '';
+
+  inner.innerHTML = `
+    <p class="svc-panel-desc">${s.desc}</p>
+    <p class="svc-panel-includes-title">${s.includesTitle}</p>
+    <div class="svc-panel-includes">
+      ${s.includes.map(item => `
+        <div class="svc-panel-include-item">
+          ${checkIcon(svc.accentClr)}
+          <span class="svc-panel-include-text">${item}</span>
+        </div>
+      `).join('')}
+    </div>
+    ${videoSection}
+    <a href="#contact-form" class="svc-panel-cta">
+      ${s.quoteLabel}
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+  `;
+}
+
+function toggleService(key) {
+  const row   = document.querySelector(`.svc-row[data-service="${key}"]`);
+  const panel = document.getElementById(`svc-panel-${key}`);
+  if (!row || !panel) return;
+
+  const isOpen = row.getAttribute('aria-expanded') === 'true';
+
+  /* Close all */
+  document.querySelectorAll('.svc-row[data-service]').forEach(r => {
+    r.setAttribute('aria-expanded', 'false');
+    r.classList.remove('active');
+  });
+  document.querySelectorAll('.svc-panel').forEach(p => p.classList.remove('open'));
+
+  if (!isOpen) {
+    const inner = panel.querySelector('.svc-panel-inner');
+    if (inner && !inner.innerHTML.trim()) renderServicePanel(key, inner);
+    row.setAttribute('aria-expanded', 'true');
+    row.classList.add('active');
+    requestAnimationFrame(() => panel.classList.add('open'));
+    /* Scroll row into view on mobile */
+    if (window.innerWidth < 768) {
+      setTimeout(() => row.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 60);
+    }
+  }
+}
+
+/* ── Legacy modal (kept for compatibility) ── */
 let _modalOpener = null;
 
 function openModal(key) {
@@ -439,9 +529,7 @@ function openModal(key) {
     <div class="modal-see-it">
       <h4 class="modal-includes-title">${s.seeItTitle || s.includesTitle}</h4>
       <a href="${svc.video}" target="_blank" rel="noopener noreferrer" class="modal-video-link">
-        <div class="modal-video-icon" style="background:${svc.accentBg};color:${svc.accentClr}">
-          ${svc.iconSvg}
-        </div>
+        <div class="modal-video-icon" style="background:${svc.accentBg};color:${svc.accentClr}">${svc.iconSvg}</div>
         <div class="modal-video-text">
           <span class="modal-video-label">${s.videoLabel}</span>
           <span class="modal-video-sub">${s.videoSub}</span>
@@ -465,10 +553,7 @@ function openModal(key) {
       <h4 class="modal-includes-title">${s.includesTitle}</h4>
       <div class="modal-includes">
         ${s.includes.map(item => `
-          <div class="modal-include-item">
-            ${checkIcon}
-            <span class="modal-include-text">${item}</span>
-          </div>
+          <div class="modal-include-item">${checkIcon}<span class="modal-include-text">${item}</span></div>
         `).join('')}
       </div>
     </div>
