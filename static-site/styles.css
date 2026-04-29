@@ -14,11 +14,11 @@
 /* ── Variables ── */
 :root {
   /* Deep indigo-navy — the logo's book body */
-  --bg:          oklch(9%   0.065 278);
-  --surface:     oklch(13%  0.062 278);
-  --surface-2:   oklch(17%  0.058 278);
-  --border:      oklch(25%  0.05  278);
-  --border-2:    oklch(36%  0.05  278);
+  --bg:          oklch(13%  0.062 278);
+  --surface:     oklch(17%  0.058 278);
+  --surface-2:   oklch(21%  0.055 278);
+  --border:      oklch(28%  0.05  278);
+  --border-2:    oklch(39%  0.05  278);
   /* Teal — the logo's bookmark accent */
   --accent:      oklch(74%  0.17  168);
   --accent-dim:  oklch(74%  0.17  168 / 0.24);
@@ -26,7 +26,7 @@
   /* Near-white text, indigo-tinted */
   --text:        oklch(96%  0.004 278);
   --text-2:      oklch(66%  0.012 278);
-  --text-3:      oklch(44%  0.012 278);
+  --text-3:      oklch(58%  0.012 278);
 
   --fd: 'Barlow Condensed', sans-serif;
   --fb: 'Figtree', sans-serif;
@@ -359,7 +359,7 @@ figure { margin: 0; }
   position: relative; z-index: 1;
   width: 100%; max-width: var(--wrap);
   margin: 0 auto;
-  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 80px) clamp(40px, 4vw, 56px);
+  padding: clamp(28px, 3.5vw, 48px) clamp(20px, 5vw, 80px) clamp(16px, 2vw, 28px);
   flex: 1; display: flex; flex-direction: column; justify-content: center;
 }
 
@@ -392,23 +392,23 @@ figure { margin: 0; }
   text-transform: uppercase;
   line-height: 0.87;
   letter-spacing: -0.025em;
-  margin-bottom: clamp(36px, 5vw, 56px);
+  margin-bottom: clamp(18px, 2.5vw, 28px);
 }
 
 .hl-row { display: block; }
 
 .hl-sm {
-  font-size: clamp(52px, 8.5vw, 110px);
+  font-size: clamp(38px, 6vw, 80px);
   color: var(--text-2);
 }
 
 .hl-xl {
-  font-size: clamp(88px, 16vw, 210px);
+  font-size: clamp(68px, 11vw, 148px);
   color: var(--text);
 }
 
 .hl-lg {
-  font-size: clamp(68px, 12vw, 155px);
+  font-size: clamp(52px, 9vw, 118px);
   color: var(--text);
 }
 
@@ -418,7 +418,7 @@ figure { margin: 0; }
 }
 
 .hero-foot {
-  display: flex; flex-direction: column; gap: 28px;
+  display: flex; flex-direction: column; gap: 18px;
   max-width: 560px;
 }
 
@@ -436,52 +436,126 @@ figure { margin: 0; }
   position: relative; z-index: 1;
   width: 100%; max-width: var(--wrap);
   margin: 0 auto;
-  padding: 0 clamp(20px, 5vw, 80px) clamp(28px, 4vw, 44px);
-  display: flex; align-items: center; gap: 20px;
+  padding: 0 clamp(20px, 5vw, 80px) clamp(20px, 3vw, 36px);
+  display: flex; align-items: center; gap: 40px;
 }
 
 .proof-item {
-  display: flex; align-items: center; gap: 9px;
-  color: var(--text-2); font-size: 14px;
-  transition: color 0.2s ease;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+  color: var(--text-2);
+  transition: color 0.2s ease; text-decoration: none;
 }
-.proof-item:hover { color: var(--text); }
+.proof-item:hover .proof-platform { color: var(--text); }
 
 .proof-item strong {
   font-family: var(--fd);
-  font-size: 22px; font-weight: 800; letter-spacing: -0.01em;
+  font-size: clamp(52px, 6.5vw, 82px);
+  font-weight: 900; line-height: 0.88; letter-spacing: -0.03em;
   color: var(--text);
 }
 
-.proof-item span { color: var(--text-3); font-size: 13px; }
+.proof-platform {
+  display: flex; align-items: center; gap: 7px;
+  color: var(--text-3); font-size: 15px; font-weight: 500;
+  transition: color 0.2s ease;
+}
 
-.proof-div { width: 1px; height: 26px; background: var(--border); }
+.proof-div { width: 1px; height: 80px; background: var(--border); }
 
 /* ─────────────────────────────────────────
-   TICKER
+   PARTNERS BANNER
+   Speed: change the duration value on .marquee-track below
 ───────────────────────────────────────── */
-.ticker-wrap {
+.partners-wrap {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   background: var(--surface);
+  padding: 28px 0 32px;
+  position: relative;
+}
+
+.partners-label {
+  text-align: center;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-2);
+  margin: 0 0 22px;
+}
+
+.marquee-overflow {
   overflow: hidden;
-  padding: 14px 0;
+  position: relative;
 }
 
-.ticker-track {
-  display: flex; align-items: center; gap: 28px;
-  white-space: nowrap;
-  animation: ticker 30s linear infinite;
+/*
+  Edge fades are exactly one logo slot wide (25vw) so the entering
+  and exiting logos dissolve in/out rather than hard-clipping.
+*/
+.marquee-overflow::before,
+.marquee-overflow::after {
+  content: '';
+  position: absolute; top: 0; bottom: 0; width: 25vw; z-index: 2; pointer-events: none;
+}
+.marquee-overflow::before { left: 0;  background: linear-gradient(to right, var(--bg), transparent); }
+.marquee-overflow::after  { right: 0; background: linear-gradient(to left,  var(--bg), transparent); }
+
+/*
+  Track = [SET A][SET B] — identical content, total = 2 × 6 logos × 25vw = 300vw.
+
+  Direction: LEFT TO RIGHT (logos enter from left, exit right).
+    from: translate3d(-50%)  → viewport sits over SET B start (pos 150vw in track)
+    to:   translate3d(0)     → track slides right, viewport moves back to SET A start
+  Reset is seamless because SET A start = SET B start visually.
+
+  translate3d forces a GPU compositing layer — no jank, consistent 60fps.
+*/
+.marquee-track {
+  display: flex;
   width: max-content;
+  will-change: transform;
+  animation: marquee-scroll 30s linear infinite;
 }
 
-@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+.partners-wrap:hover .marquee-track { animation-play-state: paused; }
 
-.ticker-item { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-2); }
-.ticker-dot  { color: var(--accent); font-size: 9px; }
+.marquee-set {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
 
-@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
+/*
+  Each slot = exactly 25vw → 4 slots fill 100vw → 4 logos visible at a time.
+  The 5th is always mid-fade on the left edge as it enters.
+*/
+.partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 25vw;
+  height: 88px;
+}
+
+.partner-logo img {
+  height: 56px;
+  width: 150px;
+  object-fit: contain;
+  object-position: center;
+  opacity: 0.9;
+  filter: none;
+  transition: opacity 0.3s ease;
+}
+
+.partner-logo:hover img { opacity: 1; }
+
+@keyframes marquee-scroll {
+  from { transform: translate3d(-50%, 0, 0); }
+  to   { transform: translate3d(0,    0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none !important; }
+}
 
 /* ─────────────────────────────────────────
    SERVICES
@@ -622,16 +696,22 @@ figure { margin: 0; }
 ───────────────────────────────────────── */
 .work-section { background: var(--surface); }
 
+/*
+  Work grid: two rows of explicit height so every cell is the same tall.
+  Figures fill their cell via position:absolute so the image always covers
+  without a fixed px height. Caption overlays at the bottom with a gradient.
+*/
 .work-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  grid-template-rows: 380px 380px;
+  gap: 10px;
 }
 
-.work-cell:nth-child(1) { grid-column: 1 / 3; }
-.work-cell:nth-child(2) { grid-column: 3 / 4; }
-.work-cell:nth-child(3) { grid-column: 1 / 2; }
-.work-cell:nth-child(4) { grid-column: 2 / 4; }
+.work-cell:nth-child(1) { grid-column: 1 / 3; grid-row: 1; }
+.work-cell:nth-child(2) { grid-column: 3 / 4; grid-row: 1; }
+.work-cell:nth-child(3) { grid-column: 1 / 2; grid-row: 2; }
+.work-cell:nth-child(4) { grid-column: 2 / 4; grid-row: 2; }
 
 .work-cell {
   position: relative;
@@ -640,36 +720,45 @@ figure { margin: 0; }
   background: var(--bg);
 }
 
-.work-fig { position: relative; overflow: hidden; height: 100%; display: flex; flex-direction: column; }
+/* Figure fills the entire cell — no flex height tricks needed */
+.work-fig {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
 
+/* Image fills the figure completely */
 .work-img {
-  width: 100%; height: 340px;
+  width: 100%; height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s var(--expo), filter 0.5s ease;
-  filter: brightness(0.88);
+  transition: transform 0.6s var(--expo), filter 0.5s ease;
+  filter: brightness(0.82);
 }
+
 .work-cell:nth-child(2) .work-img,
-.work-cell:nth-child(3) .work-img { height: 440px; }
+.work-cell:nth-child(3) .work-img { object-position: left center; }
 
-.work-cell:hover .work-img { transform: scale(1.04); filter: brightness(0.7); }
+.work-cell:hover .work-img { transform: scale(1.04); filter: brightness(0.6); }
 
+/* Caption sits at the bottom as a gradient overlay — no background block needed */
 .work-cap {
-  padding: 18px 22px;
-  background: var(--surface);
-  display: flex; gap: 14px; align-items: flex-start;
-  flex: 1;
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 40px 24px 22px;
+  background: linear-gradient(to top, oklch(9% 0.04 278 / 0.92) 0%, transparent 100%);
+  display: flex; gap: 14px; align-items: flex-end;
 }
 
 .work-idx {
   font-family: var(--fd); font-size: 12px; font-weight: 800;
   letter-spacing: 0.08em;
   color: var(--accent);
-  flex-shrink: 0; padding-top: 2px;
+  flex-shrink: 0; padding-bottom: 3px;
 }
 
 .work-ttl {
-  font-family: var(--fd); font-size: clamp(16px, 2vw, 22px);
+  font-family: var(--fd); font-size: clamp(15px, 1.8vw, 21px);
   font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em;
   color: var(--text); line-height: 1;
   margin-bottom: 4px;
@@ -1044,15 +1133,15 @@ figure { margin: 0; }
   .nb-links { display: none; }
   .nb-right-mobile { display: flex; }
 
-  .work-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .work-cell:nth-child(1) { grid-column: 1 / -1; }
-  .work-cell:nth-child(2) { grid-column: 1; }
-  .work-cell:nth-child(3) { grid-column: 2; }
-  .work-cell:nth-child(4) { grid-column: 1 / -1; }
-
-  .work-img { height: 220px; }
-  .work-cell:nth-child(2) .work-img,
-  .work-cell:nth-child(3) .work-img { height: 240px; }
+  .work-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 260px 260px 260px;
+    gap: 10px;
+  }
+  .work-cell:nth-child(1) { grid-column: 1 / -1; grid-row: 1; }
+  .work-cell:nth-child(2) { grid-column: 1;      grid-row: 2; }
+  .work-cell:nth-child(3) { grid-column: 2;      grid-row: 2; }
+  .work-cell:nth-child(4) { grid-column: 1 / -1; grid-row: 3; }
 
   .cases-grid { grid-template-columns: 1fr; }
   .cases-grid .case-item:nth-child(3) { grid-column: 1; }
@@ -1074,8 +1163,8 @@ figure { margin: 0; }
 }
 
 @media (max-width: 480px) {
-  .work-grid { grid-template-columns: 1fr; }
-  .work-cell:nth-child(n) { grid-column: 1 !important; }
+  .work-grid { grid-template-columns: 1fr; grid-template-rows: repeat(4, 240px); }
+  .work-cell:nth-child(n) { grid-column: 1 !important; grid-row: auto !important; }
 
   .svc-row { grid-template-columns: 44px 1fr 44px; gap: 12px; padding: 22px 16px; }
 
@@ -1153,6 +1242,22 @@ figure { margin: 0; }
 [dir="rtl"] .hero-accent-line { align-self: flex-start; }
 
 /* Font size reduction for Arabic display text (Cairo/VIP Hala wider than Barlow Condensed) */
-[dir="rtl"] .hl-xl { font-size: clamp(64px, 12vw, 155px); }
-[dir="rtl"] .hl-lg { font-size: clamp(50px, 9vw, 115px); }
-[dir="rtl"] .hl-sm { font-size: clamp(38px, 6vw, 78px); }
+[dir="rtl"] .hl-xl { font-size: clamp(54px, 9.5vw, 122px); }
+[dir="rtl"] .hl-lg { font-size: clamp(42px, 7.5vw, 96px); }
+[dir="rtl"] .hl-sm { font-size: clamp(32px, 5vw, 64px); }
+
+/* ── Partners marquee — RTL fix ──────────────────────────────────────────────
+   RTL flex reverses item layout and misaligns the -50% start keyframe.
+   Force both wrapper and track to physical LTR so the layout and clip are
+   identical to the LTR version, then swap to a right-to-left animation.
+   The edge fades (::before left, ::after right) stay correct for RTL scroll.
+──────────────────────────────────────────────────────────────────────────── */
+[dir="rtl"] .marquee-overflow,
+[dir="rtl"] .marquee-track { direction: ltr; }
+
+[dir="rtl"] .marquee-track { animation-name: marquee-scroll-rtl; }
+
+@keyframes marquee-scroll-rtl {
+  from { transform: translate3d(0,    0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
