@@ -605,4 +605,4 @@ document.addEventListener('keydown', e => {
 });
 
 /* ── Init language (must run last) ── */
-applyLanguage(detectLang());
+applyLanguage('en');
