@@ -2,271 +2,7 @@
    THE REEL RECIPE — Static JS
    ========================================================= */
 
-/* ── Translations ── */
-const TRANSLATIONS = {
-  en: {
-    pageTitle:       'The Reel Recipe | Viral Content Agency',
-    navServices:     'Services',
-    navAbout:        'About',
-    navResults:      'Results',
-    navContact:      'Contact',
-    navCta:          'Get Started',
-    heroBadge:       'MENA content agency',
-    heroWord1:       'We',
-    heroWord2:       ' make',
-    heroWord3:       'brands',
-    heroViral:       'go viral.',
-    heroSub:         'Full-service content agency specializing in viral strategies, performance marketing, and end-to-end digital solutions that drive real results.',
-    followerTotal:   'Total Followers',
-    heroCta1:        'Become Our Client',
-    heroCta2:        'Apply to Jobs',
-    servicesBadge:   'What We Do',
-    servicesTitleL1: 'Everything you need',
-    servicesTitleL2: 'under one roof.',
-    svcContentCat:   'Content',
-    svcContentTitle: 'Content Creation',
-    svcContentDesc:  'Scroll-stopping content that builds community and drives organic reach.',
-    svcUgcCat:       'Content',
-    svcUgcTitle:     'UGC',
-    svcUgcDesc:      'Authentic user-generated content from real creators that drives trust and conversion.',
-    svcMediaCat:     'Marketing',
-    svcMediaTitle:   'Media Buying',
-    svcMediaDesc:    'Strategic ad placement across platforms for maximum impact.',
-    svcMore:         'Learn more',
-    portfolioBadge:  'Our Work',
-    portfolioTitleL1:'Content that',
-    portfolioTitleL2:'breaks the algorithm.',
-    portfolioSub:    "From storytelling that moves people to skits that go viral, we've cracked the code on what makes content spread.",
-    stat80Label:     'Clients Served',
-    stat80Sub:       'in just 15 months',
-    stat50Label:     'Total Reach',
-    stat50Sub:       'across platforms',
-    stat3Label:      'Avg. Engagement',
-    stat3Sub:        'vs industry standard',
-    stat15Label:     'Industries',
-    stat15Sub:       'covered',
-    realResultsTitle:'Real Results',
-    realResultsSub:  'Before & after: what happens when brands work with us.',
-    parisCat:        'Clothing Brand',
-    dtxCat:          'Digital Printing',
-    tapiocaCat:      'Bubble Tea',
-    beforeLabel:     'Before',
-    afterLabel:      'After',
-    whatWeCreate:    'What We Create',
-    ct1Title:        'Storytelling',
-    ct1Desc:         'One of the secret ingredients that made The Reel Recipe possible. Deep emotional connection through authentic narratives.',
-    ct2Title:        'Skits',
-    ct2Desc:         "A bit of acting to convey a hidden message with the fun factor we've mastered. Entertainment meets strategy.",
-    ct3Title:        'Voxpop',
-    ct3Desc:         'Street interviews reinvented. We changed the style and made it more youthful, raw, and shareable.',
-    ct4Title:        'UGC',
-    ct4Desc:         'User generated content at its best, in the most authentic form. Real people, real results.',
-    portCta:         'Get a Free Quote →',
-    portCtaNote:     'One click away',
-    aboutLine1:      'Built for brands that',
-    aboutLine2:      'refuse to blend in.',
-    aboutDesc:       "We combine creative instinct with data-driven strategy to build content ecosystems that don't just perform; they dominate.",
-    statsViews:      'Views Generated',
-    statsBrands:     'Brands Scaled',
-    statsRoas:       'Average ROAS',
-    statsAlways:     'Always On',
-    statsNote:       'Ready to see these results for your brand?',
-    statsNoteCta:    "Let's talk →",
-    ctaQuestion:     'Are you ready?',
-    ctaTitle1:       "Let's build something",
-    ctaTitle2:       'unforgettable.',
-    ctaDesc:         "Whether you need viral content, a full rebrand, or a complete digital ecosystem: we're ready when you are.",
-    ctaBtn1:         'Get Your Free Quote',
-    ctaBtn2:         'Join Our Team',
-    contactTitle:    'Get Started',
-    contactSub:      'Choose how you want to work with us.',
-    contactBtn1:     'Become Our Client',
-    contactBtn2:     'Apply to Jobs',
-    contactBtn3:     'Become a UGC Creator',
-    footerTag:       'Viral content. Real results.',
-    footerCopy:      '© {year} The Reel Recipe. All rights reserved.',
-    modalIncludesTitle: "What's Included",
-    modalSeeItTitle: 'See It In Action',
-    modalWatchLabel: 'Watch Example',
-    modalWatchSub:   'View on Instagram',
-    modalQuote:      'Get a Free Quote',
-    menuToggle:      'Toggle menu',
-    menuClose:       'Close menu',
-    modalClose:      'Close',
-  },
-  ar: {
-    pageTitle:       'The Reel Recipe | وكالة المحتوى الفيروسي',
-    navServices:     'الخدمات',
-    navAbout:        'من نحن',
-    navResults:      'النتائج',
-    navContact:      'تواصل',
-    navCta:          'ابدأ الآن',
-    heroBadge:       'وكالة محتوى MENA',
-    heroWord1:       'نصنع',
-    heroWord2:       ' علامتك',
-    heroWord3:       'التجارية',
-    heroViral:       'فيروسية.',
-    heroSub:         'وكالة محتوى متكاملة متخصصة في استراتيجيات الانتشار الفيروسي والتسويق الرقمي وحلول شاملة تحقق نتائج حقيقية.',
-    followerTotal:   'إجمالي المتابعين',
-    heroCta1:        'كن عميلنا',
-    heroCta2:        'تقدم للوظائف',
-    servicesBadge:   'ما نقدمه',
-    servicesTitleL1: 'كل ما تحتاجه',
-    servicesTitleL2: 'تحت سقف واحد.',
-    svcContentCat:   'محتوى',
-    svcContentTitle: 'صناعة المحتوى',
-    svcContentDesc:  'محتوى يوقف التمرير ويبني مجتمعًا ويحقق وصولًا عضويًا.',
-    svcUgcCat:       'محتوى',
-    svcUgcTitle:     'محتوى المستخدمين',
-    svcUgcDesc:      'محتوى أصيل من منشئين حقيقيين يبني الثقة ويحسّن معدلات التحويل.',
-    svcMediaCat:     'تسويق',
-    svcMediaTitle:   'شراء الإعلانات',
-    svcMediaDesc:    'توزيع إعلاني استراتيجي عبر المنصات لتحقيق أقصى تأثير.',
-    svcMore:         'اعرف المزيد',
-    portfolioBadge:  'أعمالنا',
-    portfolioTitleL1:'محتوى يكسر',
-    portfolioTitleL2:'الخوارزميات.',
-    portfolioSub:    'من القصص التي تحرك المشاعر إلى السكتشات الفيروسية، اكتشفنا سر انتشار المحتوى.',
-    stat80Label:     'عميل خدمناهم',
-    stat80Sub:       'في 15 شهرًا فقط',
-    stat50Label:     'إجمالي الوصول',
-    stat50Sub:       'عبر المنصات',
-    stat3Label:      'متوسط التفاعل',
-    stat3Sub:        'مقارنة بمعيار الصناعة',
-    stat15Label:     'قطاع',
-    stat15Sub:       'تغطيها خدماتنا',
-    realResultsTitle:'نتائج حقيقية',
-    realResultsSub:  'قبل وبعد: ما يحدث عندما تعمل معنا.',
-    parisCat:        'علامة ملابس',
-    dtxCat:          'طباعة رقمية',
-    tapiocaCat:      'مشروبات تابيوكا',
-    beforeLabel:     'قبل',
-    afterLabel:      'بعد',
-    whatWeCreate:    'ما نصنعه',
-    ct1Title:        'قصص',
-    ct1Desc:         'أحد المكونات السرية التي جعلت The Reel Recipe ممكنة. تواصل عاطفي عميق من خلال روايات أصيلة.',
-    ct2Title:        'سكتشات',
-    ct2Desc:         'قليل من التمثيل لإيصال رسالة خفية مع عامل المتعة الذي أتقنّاه. الترفيه يلتقي الاستراتيجية.',
-    ct3Title:        'مقابلات الشارع',
-    ct3Desc:         'مقابلات الشارع بأسلوب مختلف. غيّرنا الطريقة وجعلناها أكثر شبابية وحيوية وقابلية للمشاركة.',
-    ct4Title:        'محتوى المستخدمين',
-    ct4Desc:         'محتوى المستخدمين في أفضل صوره، بأكثر الأشكال أصالة. أشخاص حقيقيون، نتائج حقيقية.',
-    portCta:         'احصل على عرض مجاني ←',
-    portCtaNote:     'بنقرة واحدة فقط',
-    aboutLine1:      'بُنينا للعلامات التجارية',
-    aboutLine2:      'التي ترفض أن تكون عادية.',
-    aboutDesc:       'نجمع بين الحدس الإبداعي والاستراتيجية المبنية على البيانات لبناء منظومات محتوى لا تؤدي فحسب؛ بل تهيمن.',
-    statsViews:      'مشاهدة حُققت',
-    statsBrands:     'علامة تجارية طوّرناها',
-    statsRoas:       'متوسط العائد الإعلاني',
-    statsAlways:     'متاحون دائمًا',
-    statsNote:       'هل أنت مستعد لرؤية هذه النتائج لعلامتك؟',
-    statsNoteCta:    'تحدث إلينا ←',
-    ctaQuestion:     '!هل أنت مستعد؟',
-    ctaTitle1:       'لنبني شيئًا',
-    ctaTitle2:       'لا يُنسى.',
-    ctaDesc:         'سواء كنت تحتاج محتوى فيروسيًا أو إعادة بناء كاملة للعلامة أو منظومة رقمية متكاملة، نحن جاهزون متى كنت.',
-    ctaBtn1:         'احصل على عرضك المجاني',
-    ctaBtn2:         'انضم إلى فريقنا',
-    contactTitle:    'ابدأ معنا',
-    contactSub:      'اختر كيف تريد العمل معنا.',
-    contactBtn1:     'كن عميلنا',
-    contactBtn2:     'تقدم للوظائف',
-    contactBtn3:     'كن منشئ محتوى UGC',
-    footerTag:       'محتوى فيروسي. نتائج حقيقية.',
-    footerCopy:      '© {year} The Reel Recipe. جميع الحقوق محفوظة.',
-    modalIncludesTitle: 'ما يشمله الخدمة',
-    modalSeeItTitle: 'شاهد المثال',
-    modalWatchLabel: 'شاهد مثالًا',
-    modalWatchSub:   'عرض على انستغرام',
-    modalQuote:      'احصل على عرض مجاني',
-    menuToggle:      'القائمة',
-    menuClose:       'إغلاق القائمة',
-    modalClose:      'إغلاق',
-  },
-};
-
-/* ── Language detection & switching ── */
-let currentLang = 'en';
-
-function detectLang() {
-  const saved = localStorage.getItem('rrLang');
-  if (saved === 'en' || saved === 'ar') return saved;
-  const browser = (navigator.language || '').toLowerCase();
-  return browser.startsWith('ar') ? 'ar' : 'en';
-}
-
-function applyLanguage(lang) {
-  document.documentElement.classList.add('lang-switching');
-
-  currentLang = lang;
-  const t = TRANSLATIONS[lang];
-  const isAr = lang === 'ar';
-
-  document.documentElement.lang = lang;
-  document.documentElement.dir  = isAr ? 'rtl' : 'ltr';
-  document.title = t.pageTitle;
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    if (t[key] !== undefined) el.textContent = t[key];
-  });
-
-  const year = new Date().getFullYear();
-  const copyEl = document.getElementById('footerCopy');
-  if (copyEl) copyEl.textContent = t.footerCopy.replace('{year}', year);
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-
-  /* Single-button cycle (desktop nav) */
-  const langCycleBtn = document.getElementById('langCycle');
-  if (langCycleBtn) {
-    langCycleBtn.textContent = lang === 'en' ? 'AR' : 'EN';
-    langCycleBtn.setAttribute('aria-label', lang === 'en' ? 'Switch to Arabic' : 'Switch to English');
-  }
-
-  const menuBtn = document.getElementById('menuBtn');
-  if (menuBtn) menuBtn.setAttribute('aria-label', t.menuToggle);
-  document.querySelectorAll('.mobile-close').forEach(el => el.setAttribute('aria-label', t.menuClose));
-  document.querySelectorAll('.modal-close').forEach(el => el.setAttribute('aria-label', t.modalClose));
-
-  const svcCards = document.querySelectorAll('.service-card');
-  const svcLabelKeys = ['svcContentTitle', 'svcUgcTitle', 'svcMediaTitle'];
-  svcCards.forEach((card, i) => {
-    if (svcLabelKeys[i] && t[svcLabelKeys[i]]) card.setAttribute('aria-label', t[svcLabelKeys[i]]);
-  });
-
-  /* Close & clear accordion panels so they re-render in the new language */
-  document.querySelectorAll('.svc-row[data-service]').forEach(r => {
-    r.setAttribute('aria-expanded', 'false');
-    r.classList.remove('active');
-  });
-  document.querySelectorAll('.svc-panel').forEach(p => {
-    p.classList.remove('open');
-    const inner = p.querySelector('.svc-panel-inner');
-    if (inner) inner.innerHTML = '';
-  });
-
-  localStorage.setItem('rrLang', lang);
-
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    document.documentElement.classList.remove('lang-switching');
-  }));
-}
-
-/* ── Language button listeners ── */
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
-});
-
-const langCycleBtn = document.getElementById('langCycle');
-if (langCycleBtn) {
-  langCycleBtn.addEventListener('click', () => applyLanguage(currentLang === 'en' ? 'ar' : 'en'));
-}
-
-/* ── Year (fallback, handled in applyLanguage too) ── */
+/* ── Year ── */
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -377,17 +113,6 @@ const services = {
       includesTitle: "What's Included",
       seeItTitle: 'See It In Action',
     },
-    ar: {
-      cat:        'محتوى',
-      title:      'صناعة المحتوى',
-      desc:       'يتميز محتوانا بإنشاء اتصال عاطفي عميق مع الجمهور، مما يدفع إلى تفاعل ووصول أعلى. نركز على السرد الأصيل وفهم اتجاهات وسائل التواصل الاجتماعي، ما ينتج محتوى يتردد صداه ويُشارَك على نطاق واسع.',
-      includes:   ['استراتيجية المحتوى والتخطيط', 'ريلز وتيك توك تتابع الاتجاهات', 'منشورات بناء المجتمع', 'صيغ محسّنة لكل منصة', 'تقاويم محتوى شهرية'],
-      videoLabel: 'شاهد مثالًا',
-      videoSub:   'عرض على انستغرام',
-      quoteLabel: 'احصل على عرض مجاني',
-      includesTitle: 'ما يشمله الخدمة',
-      seeItTitle: 'شاهد المثال',
-    },
     accentBg:  'rgba(103,193,159,0.1)',
     accentClr: '#67c19f',
     gradient:  'linear-gradient(90deg, rgba(103,193,159,0.4), transparent)',
@@ -408,14 +133,6 @@ const services = {
       quoteLabel: 'Get a Free Quote',
       includesTitle: "What's Included",
     },
-    ar: {
-      cat:        'محتوى',
-      title:      'محتوى المستخدمين',
-      desc:       'محتوى المستخدمين في أكثر أشكاله أصالة. نتشارك مع منشئين حقيقيين لإنتاج محتوى خام وقابل للتواصل يبني الثقة ويحفز التحويلات: المحتوى الذي يوقف التمرير لأنه لا يبدو كإعلان.',
-      includes:   ['شبكة منشئين ومطابقة', 'تطوير موجز المحتوى', 'إنتاج خام وأصيل', 'تحسين متعدد المنصات', 'تتبع الأداء'],
-      quoteLabel: 'احصل على عرض مجاني',
-      includesTitle: 'ما يشمله الخدمة',
-    },
     accentBg:  'rgba(34,211,238,0.1)',
     accentClr: '#22d3ee',
     gradient:  'linear-gradient(90deg, rgba(34,211,238,0.4), transparent)',
@@ -435,14 +152,6 @@ const services = {
       quoteLabel: 'Get a Free Quote',
       includesTitle: "What's Included",
     },
-    ar: {
-      cat:        'تسويق',
-      title:      'شراء الإعلانات',
-      desc:       'نتولى شراء الإعلانات من البداية إلى النهاية عبر Meta وTikTok وGoogle وغيرها. يُحسّن فريقنا الإنفاق الإعلاني لتعظيم الوصول والتحويلات باستخدام البيانات الفورية لتعديل الحملات لتحقيق أفضل عائد إعلاني.',
-      includes:   ['إدارة إعلانات متعددة المنصات', 'استهداف الجمهور وتقسيمه', 'تحسين الميزانية', 'تتبع الأداء في الوقت الفعلي', 'تقارير أسبوعية'],
-      quoteLabel: 'احصل على عرض مجاني',
-      includesTitle: 'ما يشمله الخدمة',
-    },
     accentBg:  'rgba(251,113,133,0.1)',
     accentClr: '#fb7185',
     gradient:  'linear-gradient(90deg, rgba(251,113,133,0.4), transparent)',
@@ -460,7 +169,7 @@ const services = {
 function renderServicePanel(key, inner) {
   const svc = services[key];
   if (!svc) return;
-  const s = { ...svc[currentLang], ...svc };
+  const s = { ...svc.en, ...svc };
 
   const checkIcon = (clr) => `<svg class="svc-panel-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="${clr}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
 
@@ -527,7 +236,7 @@ let _modalOpener = null;
 function openModal(key) {
   const svc = services[key];
   if (!svc) return;
-  const s = { ...svc[currentLang], ...svc };
+  const s = { ...svc.en, ...svc };
 
   const checkIcon = `<svg class="modal-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="${svc.accentClr}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
 
@@ -604,5 +313,41 @@ document.addEventListener('keydown', e => {
   }
 });
 
-/* ── Init language (must run last) ── */
-applyLanguage(detectLang());
+
+/* ── UTM → Airtable prefill ── */
+(function () {
+  const BASE_FORM_URL = 'https://airtable.com/app9vu99FNclhXxIV/pagEYrGXpEo0ZyMzz/form';
+  const SS_KEY = 'utm_campaign';
+
+  function readStorage() {
+    try { return sessionStorage.getItem(SS_KEY) || ''; } catch (_) { return ''; }
+  }
+  function writeStorage(val) {
+    try { sessionStorage.setItem(SS_KEY, val); } catch (_) {}
+  }
+
+  function getCampaign() {
+    const raw = new URLSearchParams(window.location.search).get(SS_KEY);
+    if (raw) {
+      const val = raw.trim().toLowerCase();
+      writeStorage(val);
+      return val;
+    }
+    return readStorage();
+  }
+
+  function updateLinks() {
+    const campaign = getCampaign();
+    document.querySelectorAll('a[data-airtable-form="true"]').forEach(function (a) {
+      if (campaign) {
+        a.href = BASE_FORM_URL +
+          '?prefill_Lead+Source=' + encodeURIComponent(campaign) +
+          '&hide_Lead+Source=true';
+      } else {
+        a.href = BASE_FORM_URL;
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', updateLinks);
+})();
