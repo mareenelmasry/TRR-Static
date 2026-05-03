@@ -8,7 +8,7 @@
   font-family: 'VIP Hala';
   src: url('./fonts/vip-hala-bold.otf') format('opentype');
   font-weight: 700;
-  font-display: swap;
+  font-display: block;
 }
 
 /* ── Variables ── */
