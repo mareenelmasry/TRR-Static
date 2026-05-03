@@ -244,12 +244,64 @@ figure { margin: 0; }
 ───────────────────────────────────────── */
 .navbar-wrap { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
 
-.navbar { border-bottom: 1px solid transparent; transition: background 0.3s ease, border-color 0.3s ease; }
+.navbar {
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 0;
+  isolation: isolate;
+  transition:
+    background 0.45s var(--quart),
+    border-color 0.45s var(--quart),
+    border-radius 0.45s var(--quart),
+    margin 0.45s var(--quart),
+    box-shadow 0.45s var(--quart);
+}
+
+/* Teal specular sweep — brand-native highlight, not generic white */
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    155deg,
+    oklch(74% 0.17 168 / 0.11) 0%,
+    oklch(96% 0.004 278 / 0.04) 28%,
+    transparent 55%
+  );
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.45s var(--quart);
+}
+
+.navbar.scrolled::before { opacity: 1; }
+
+.navbar > * { position: relative; z-index: 1; }
+
 .navbar.scrolled {
-  background: oklch(9% 0.065 278 / 0.92);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-bottom-color: var(--border);
+  background: oklch(9% 0.065 278 / 0.62);
+  backdrop-filter: blur(28px) saturate(165%) brightness(1.05);
+  -webkit-backdrop-filter: blur(28px) saturate(165%) brightness(1.05);
+  border-color: oklch(74% 0.17 168 / 0.16);
+  border-radius: 999px;
+  margin: 10px clamp(16px, 2.5vw, 44px);
+  overflow: hidden;
+  box-shadow:
+    0 16px 48px oklch(4% 0.04 278 / 0.58),
+    0 4px 14px  oklch(4% 0.04 278 / 0.38),
+    inset 0 1px 0 oklch(74% 0.17 168 / 0.20),
+    inset 0 -1px 0 oklch(28% 0.05 278 / 0.45);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .navbar.scrolled {
+    background: oklch(10% 0.062 278 / 0.97);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-color: var(--border);
+    box-shadow: 0 2px 8px oklch(4% 0.04 278 / 0.5);
+  }
 }
 
 .nb-content {
@@ -262,7 +314,7 @@ figure { margin: 0; }
 
 .nb-logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; transition: opacity 0.2s ease; }
 .nb-logo:hover { opacity: 0.8; }
-.nb-logo-icon    { height: 44px; width: auto; }
+.nb-logo-icon    { height: 44px; width: auto; filter: drop-shadow(0 0 4px oklch(74% 0.17 168 / 1)) drop-shadow(0 0 14px oklch(74% 0.17 168 / 0.8)) drop-shadow(0 0 32px oklch(74% 0.17 168 / 0.5)); }
 .nb-logo-wordmark{ height: 26px; width: auto; }
 
 .nb-links { display: flex; align-items: center; gap: clamp(18px, 2.5vw, 36px); }

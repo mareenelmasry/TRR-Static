@@ -606,3 +606,42 @@ document.addEventListener('keydown', e => {
 
 /* ── Init language (must run last) ── */
 applyLanguage('en');
+
+
+/* ── UTM → Airtable prefill ── */
+(function () {
+  const BASE_FORM_URL = 'https://airtable.com/app9vu99FNclhXxIV/pagEYrGXpEo0ZyMzz/form';
+  const SS_KEY = 'utm_campaign';
+
+  function readStorage() {
+    try { return sessionStorage.getItem(SS_KEY) || ''; } catch (_) { return ''; }
+  }
+  function writeStorage(val) {
+    try { sessionStorage.setItem(SS_KEY, val); } catch (_) {}
+  }
+
+  function getCampaign() {
+    const raw = new URLSearchParams(window.location.search).get(SS_KEY);
+    if (raw) {
+      const val = raw.trim().toLowerCase();
+      writeStorage(val);
+      return val;
+    }
+    return readStorage();
+  }
+
+  function updateLinks() {
+    const campaign = getCampaign();
+    document.querySelectorAll('a[data-airtable-form="true"]').forEach(function (a) {
+      if (campaign) {
+        a.href = BASE_FORM_URL +
+          '?prefill_Lead+Source=' + encodeURIComponent(campaign) +
+          '&hide_Lead+Source=true';
+      } else {
+        a.href = BASE_FORM_URL;
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', updateLinks);
+})();
