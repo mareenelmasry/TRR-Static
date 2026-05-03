@@ -14,7 +14,7 @@
 /* ── Variables ── */
 :root {
   /* Deep indigo-navy — the logo's book body */
-  --bg:          oklch(13%  0.062 278);
+  --bg:          oklch(20%  0.062 278);
   --surface:     oklch(17%  0.058 278);
   --surface-2:   oklch(21%  0.055 278);
   --border:      oklch(28%  0.05  278);
@@ -25,8 +25,8 @@
   --accent-hi:   oklch(79%  0.16  168);
   /* Near-white text, indigo-tinted */
   --text:        oklch(96%  0.004 278);
-  --text-2:      oklch(66%  0.012 278);
-  --text-3:      oklch(58%  0.012 278);
+  --text-2:      oklch(96%  0.004 278);
+  --text-3:      oklch(96%  0.004 278);
 
   --fd: 'Barlow Condensed', sans-serif;
   --fb: 'Figtree', sans-serif;
