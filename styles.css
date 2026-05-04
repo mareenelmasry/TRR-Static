@@ -1037,6 +1037,22 @@ figure { margin: 0; }
 }
 .contact-btn:hover .cbtn-label { color: var(--accent); }
 
+.cbtn-badge {
+  display: inline-block; vertical-align: middle;
+  font-family: var(--fb);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid oklch(74% 0.17 168 / 0.4);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-left: 14px;
+  transition: border-color 0.22s ease;
+  position: relative; top: -2px;
+}
+.contact-btn:hover .cbtn-badge { border-color: var(--accent); }
+
+[dir="rtl"] .cbtn-badge { margin-left: 0; margin-right: 14px; }
+
 .cbtn-arr {
   width: 44px; height: 44px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
