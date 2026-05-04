@@ -321,6 +321,8 @@ figure { margin: 0; }
 
 .nb-link { font-size: 14px; font-weight: 600; color: var(--text); letter-spacing: 0.01em; transition: color 0.2s ease; }
 .nb-link:hover { color: var(--accent); }
+.nb-link--courses { color: var(--accent); }
+.nb-link--courses:hover { color: var(--accent-hi); }
 
 .nb-cta {
   display: inline-flex; align-items: center; gap: 8px;
@@ -374,6 +376,8 @@ figure { margin: 0; }
   transition: color 0.2s ease;
 }
 .mobile-link:hover { color: var(--text); }
+.mobile-link--courses { color: var(--accent); }
+.mobile-link--courses:hover { color: var(--accent-hi); }
 
 .mobile-cta {
   margin-top: 32px; align-self: flex-start;
