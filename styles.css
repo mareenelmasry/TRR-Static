@@ -355,6 +355,7 @@ figure { margin: 0; }
 
 .mm-logo-icon {
   height: 44px; width: auto; display: block;
+  filter: drop-shadow(0 0 4px oklch(96% 0.004 278 / 0.95)) drop-shadow(0 0 14px oklch(96% 0.004 278 / 0.65)) drop-shadow(0 0 32px oklch(96% 0.004 278 / 0.35));
 }
 
 .mobile-close {
