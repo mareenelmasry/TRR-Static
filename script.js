@@ -15,28 +15,28 @@ const TRANSLATIONS = {
     heroWord1:       'We',
     heroWord2:       ' make',
     heroWord3:       'brands',
-    heroViral:       'go viral.',
-    heroSub:         'Full-service content agency specializing in viral strategies, performance marketing, and end-to-end digital solutions that drive real results.',
+    heroViral:       'go viral',
+    heroSub:         'We make content that spreads. Then we run the ads that turn that reach into actual revenue',
     followerTotal:   'Total Followers',
     heroCta1:        'Become Our Client',
     heroCta2:        'Apply to Jobs',
     servicesBadge:   'What We Do',
     servicesTitleL1: 'Everything you need',
-    servicesTitleL2: 'under one roof.',
+    servicesTitleL2: 'under one roof',
     svcContentCat:   'Content',
     svcContentTitle: 'Content Creation',
-    svcContentDesc:  'Scroll-stopping content that builds community and drives organic reach.',
+    svcContentDesc:  'Content people actually share. We find the hooks, nail the format, and grow the audience',
     svcUgcCat:       'Content',
     svcUgcTitle:     'UGC',
-    svcUgcDesc:      'Authentic user-generated content from real creators that drives trust and conversion.',
+    svcUgcDesc:      'Real people talking about your brand. Converts better than anything a studio can produce',
     svcMediaCat:     'Marketing',
     svcMediaTitle:   'Media Buying',
-    svcMediaDesc:    'Strategic ad placement across platforms for maximum impact.',
+    svcMediaDesc:    'We put budget behind what\'s already working, and pull it from what isn\'t',
     svcMore:         'Learn more',
     portfolioBadge:  'Our Work',
     portfolioTitleL1:'Content that',
-    portfolioTitleL2:'breaks the algorithm.',
-    portfolioSub:    "From storytelling that moves people to skits that go viral, we've cracked the code on what makes content spread.",
+    portfolioTitleL2:'breaks the algorithm',
+    portfolioSub:    "We've tested enough formats to know what spreads and what gets scrolled past",
     stat80Label:     'Clients Served',
     stat80Sub:       'in just 15 months',
     stat50Label:     'Total Reach',
@@ -46,7 +46,7 @@ const TRANSLATIONS = {
     stat15Label:     'Industries',
     stat15Sub:       'covered',
     realResultsTitle:'Real Results',
-    realResultsSub:  'Before & after: what happens when brands work with us.',
+    realResultsSub:  'Before & after: what happens when brands work with us',
     parisCat:        'Clothing Brand',
     dtxCat:          'Digital Printing',
     tapiocaCat:      'Bubble Tea',
@@ -54,36 +54,36 @@ const TRANSLATIONS = {
     afterLabel:      'After',
     whatWeCreate:    'What We Create',
     ct1Title:        'Storytelling',
-    ct1Desc:         'One of the secret ingredients that made The Reel Recipe possible. Deep emotional connection through authentic narratives.',
+    ct1Desc:         'The format that built The Reel Recipe. Stories people watch till the end',
     ct2Title:        'Skits',
-    ct2Desc:         "A bit of acting to convey a hidden message with the fun factor we've mastered. Entertainment meets strategy.",
+    ct2Desc:         "Acting out a point so it actually lands. Funny, shareable, with the brand message built right in",
     ct3Title:        'Voxpop',
-    ct3Desc:         'Street interviews reinvented. We changed the style and made it more youthful, raw, and shareable.',
+    ct3Desc:         'Street interviews, but faster and more raw. The kind people watch start to finish',
     ct4Title:        'UGC',
-    ct4Desc:         'User generated content at its best, in the most authentic form. Real people, real results.',
+    ct4Desc:         'Shot by real customers, not a production crew. The kind of content that moves product',
     portCta:         'Get a Free Quote →',
     portCtaNote:     'One click away',
     aboutLine1:      'Built for brands that',
-    aboutLine2:      'refuse to blend in.',
-    aboutDesc:       "We combine creative instinct with data-driven strategy to build content ecosystems that don't just perform; they dominate.",
+    aboutLine2:      'refuse to blend in',
+    aboutDesc:       "Creative gut, backed by hard data. We build the kind of presence that makes competitors nervous",
     statsViews:      'Views Generated',
     statsBrands:     'Brands Scaled',
     statsRoas:       'Average ROAS',
     statsAlways:     'Always On',
-    statsNote:       'Ready to see these results for your brand?',
+    statsNote:       'Want numbers like this for your brand?',
     statsNoteCta:    "Let's talk →",
     ctaQuestion:     'Are you ready?',
     ctaTitle1:       "Let's build something",
-    ctaTitle2:       'unforgettable.',
-    ctaDesc:         "Whether you need viral content, a full rebrand, or a complete digital ecosystem: we're ready when you are.",
+    ctaTitle2:       'unforgettable',
+    ctaDesc:         "Viral content, a full rebrand, ads that perform. Whatever the job, we've done it before",
     ctaBtn1:         'Get Your Free Quote',
     ctaBtn2:         'Join Our Team',
     contactTitle:    'Get Started',
-    contactSub:      'Choose how you want to work with us.',
+    contactSub:      'Tell us how you want in',
     contactBtn1:     'Become Our Client',
     contactBtn2:     'Apply to Jobs',
     contactBtn3:     'Become a UGC Creator',
-    footerTag:       'Viral content. Real results.',
+    footerTag:       'Viral content. Real results',
     footerCopy:      '© {year} The Reel Recipe. All rights reserved.',
     modalIncludesTitle: "What's Included",
     modalSeeItTitle: 'See It In Action',
@@ -606,3 +606,42 @@ document.addEventListener('keydown', e => {
 
 /* ── Init language (must run last) ── */
 applyLanguage('en');
+
+
+/* ── UTM → Airtable prefill ── */
+(function () {
+  const BASE_FORM_URL = 'https://airtable.com/app9vu99FNclhXxIV/pagEYrGXpEo0ZyMzz/form';
+  const SS_KEY = 'utm_campaign';
+
+  function readStorage() {
+    try { return sessionStorage.getItem(SS_KEY) || ''; } catch (_) { return ''; }
+  }
+  function writeStorage(val) {
+    try { sessionStorage.setItem(SS_KEY, val); } catch (_) {}
+  }
+
+  function getCampaign() {
+    const raw = new URLSearchParams(window.location.search).get(SS_KEY);
+    if (raw) {
+      const val = raw.trim().toLowerCase();
+      writeStorage(val);
+      return val;
+    }
+    return readStorage();
+  }
+
+  function updateLinks() {
+    const campaign = getCampaign();
+    document.querySelectorAll('a[data-airtable-form="true"]').forEach(function (a) {
+      if (campaign) {
+        a.href = BASE_FORM_URL +
+          '?prefill_Lead+Source=' + encodeURIComponent(campaign) +
+          '&hide_Lead+Source=true';
+      } else {
+        a.href = BASE_FORM_URL;
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', updateLinks);
+})();
