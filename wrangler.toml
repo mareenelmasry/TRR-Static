@@ -1,3 +1,7 @@
 name = "trr-static"
 compatibility_date = "2026-04-29"
 pages_build_output_dir = "."
+
+[[kv_namespaces]]
+binding = "TRR_CACHE"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
