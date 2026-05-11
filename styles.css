@@ -575,6 +575,7 @@ figure { margin: 0; }
   align-items: center;
   flex-shrink: 0;
   gap: 56px;
+  padding-right: 56px;
 }
 
 .partner-logo {
@@ -596,7 +597,7 @@ figure { margin: 0; }
 }
 
 @media (min-width: 769px) {
-  .marquee-set { gap: 80px; }
+  .marquee-set { gap: 80px; padding-right: 80px; }
   .partner-logo img { height: 64px; max-width: 200px; }
 }
 
