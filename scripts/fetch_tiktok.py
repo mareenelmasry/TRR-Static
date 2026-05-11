@@ -1,38 +1,12 @@
 #!/usr/bin/env python3
-"""Fetch TikTok follower count for @thereelrecipe and update index.html."""
+"""Read TikTok follower count written by fetch_tiktok.js and update index.html."""
 
 import re
-import subprocess
 import sys
+import os
 
-USERNAME = "thereelrecipe"
+COUNT_FILE = "scripts/.tiktok_count"
 HTML_FILE = "index.html"
-
-
-def fetch_follower_count():
-    result = subprocess.run(
-        [
-            "curl", "-s", "-L", "--max-time", "20",
-            "-H", "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-            "-H", "Accept-Language: en-US,en;q=0.9",
-            "-H", "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-            "-H", "Referer: https://www.tiktok.com/",
-            f"https://www.tiktok.com/@{USERNAME}",
-        ],
-        capture_output=True,
-        text=True,
-    )
-    html = result.stdout
-
-    match = re.search(r'"followerCount"\s*:\s*(\d+)', html)
-    if match:
-        return int(match.group(1))
-
-    match = re.search(r'"fans"\s*:\s*(\d+)', html)
-    if match:
-        return int(match.group(1))
-
-    return None
 
 
 def format_count(n):
@@ -66,13 +40,15 @@ def update_html(count, formatted):
 
 
 if __name__ == "__main__":
-    count = fetch_follower_count()
-    if count is None:
-        print("Could not fetch follower count — exiting without changes.")
-        sys.exit(0)
+    if not os.path.exists(COUNT_FILE):
+        print(f"{COUNT_FILE} not found — did fetch_tiktok.js run successfully?")
+        sys.exit(1)
+
+    with open(COUNT_FILE) as f:
+        count = int(f.read().strip())
 
     formatted = format_count(count)
-    print(f"Fetched: {count} → {formatted}")
+    print(f"Count: {count} → {formatted}")
 
     changed = update_html(count, formatted)
     if changed:

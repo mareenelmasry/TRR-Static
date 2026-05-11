@@ -13,7 +13,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch and update TikTok count
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright + Chromium
+        run: |
+          npm install playwright
+          npx playwright install chromium --with-deps
+
+      - name: Fetch TikTok follower count (browser)
+        run: node scripts/fetch_tiktok.js
+
+      - name: Update index.html
         run: python3 scripts/fetch_tiktok.py
 
       - name: Commit and push if changed

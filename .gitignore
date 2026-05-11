@@ -18,3 +18,5 @@ client-portal.html
 portal.css
 portal.js
 client-portal/
+scripts/.tiktok_count
+node_modules/
