@@ -361,7 +361,21 @@ function animateFollower(el) {
   requestAnimationFrame(step);
 }
 
-window.addEventListener('load', () => {
+// Start fetching immediately so it's ready before the animation fires
+const _tiktokCount = fetch('/api/tiktok-count')
+  .then(r => r.ok ? r.json() : null)
+  .catch(() => null);
+
+window.addEventListener('load', async () => {
+  // Wait up to 1s for the cached Worker response, then animate
+  const data = await Promise.race([
+    _tiktokCount,
+    new Promise(r => setTimeout(() => r(null), 1000)),
+  ]);
+  if (data?.count) {
+    const el = document.querySelector('a[href*="tiktok"] .follower-num');
+    if (el) el.dataset.count = data.count;
+  }
   setTimeout(() => {
     document.querySelectorAll('[data-count]').forEach(animateFollower);
   }, 400);
