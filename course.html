@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PLQF6TVG');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Reel Experience Vol. 2 | The Reel Recipe</title>
+  <meta name="description" content="The Reel Experience Vol. 2 — 15 chapters. The complete system for making content that goes viral, from the team behind 500M+ views.">
+  <meta name="theme-color" content="#090b1a">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="./fonts/vip-hala-bold.otf" as="font" type="font/otf" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Figtree:wght@300;400;500;600&family=Cairo:wght@400;500;600;700;800&display=block" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ── Course hero ── */
+    .course-hero {
+      min-height: 100svh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding-top: 68px;
+      position: relative; overflow: hidden;
+    }
+
+    .course-hero::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+      opacity: 0.038;
+      mix-blend-mode: overlay;
+    }
+
+    .course-hero::after {
+      content: '';
+      position: absolute; bottom: -15%; right: -5%; z-index: 0; pointer-events: none;
+      width: 65%; height: 55%;
+      background: radial-gradient(ellipse at center, oklch(74% 0.17 168 / 0.06) 0%, transparent 65%);
+    }
+
+    .course-hero-inner {
+      position: relative; z-index: 1;
+      width: 100%; max-width: var(--wrap);
+      margin: 0 auto;
+      padding: clamp(28px, 3.5vw, 48px) clamp(20px, 5vw, 80px) clamp(16px, 2vw, 28px);
+      flex: 1; display: flex; flex-direction: column; justify-content: center;
+    }
+
+    /* Enrollment badge */
+    .enroll-badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+      color: oklch(9% 0.065 278);
+      background: var(--accent);
+      padding: 5px 14px 5px 10px;
+      border-radius: 999px;
+      margin-bottom: clamp(20px, 3vw, 32px);
+      width: fit-content;
+    }
+
+    .enroll-badge-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: oklch(9% 0.065 278 / 0.5);
+      flex-shrink: 0;
+      animation: badge-pulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes badge-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.35; transform: scale(0.6); }
+    }
+
+    /* Course title typography */
+    .course-title {
+      display: flex; flex-direction: column;
+      font-family: var(--fd);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.025em;
+      margin-bottom: clamp(22px, 3vw, 36px);
+    }
+
+    .ct-the {
+      font-size: clamp(26px, 4vw, 54px);
+      color: var(--text-2);
+      line-height: 1.1;
+      letter-spacing: 0.04em;
+    }
+
+    .ct-reel {
+      font-size: clamp(82px, 14vw, 188px);
+      color: var(--text);
+      line-height: 0.82;
+    }
+
+    .ct-experience {
+      font-size: clamp(34px, 5.5vw, 72px);
+      color: var(--text);
+      line-height: 1.05;
+    }
+
+    .ct-vol {
+      font-size: clamp(26px, 4vw, 52px);
+      font-style: italic;
+      color: var(--accent);
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    .course-hero-foot {
+      display: flex; flex-direction: column; gap: 18px;
+      max-width: 560px;
+    }
+
+    /* ── Format option cards ── */
+    .course-format-options {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .format-card {
+      display: flex; flex-direction: column; gap: 12px;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      background: var(--surface);
+      min-width: 192px;
+      transition: border-color 0.22s ease;
+    }
+
+    .format-card:hover { border-color: var(--border-2); }
+
+    .format-card-header {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .format-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-2);
+    }
+
+    .seats-alert {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
+      color: oklch(80% 0.16 55);
+      background: oklch(80% 0.16 55 / 0.1);
+      border: 1px solid oklch(80% 0.16 55 / 0.28);
+      border-radius: 4px;
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
+
+    .course-see-inside {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 14px; font-weight: 500;
+      color: var(--text-2);
+      transition: color 0.2s ease;
+      text-decoration: none;
+    }
+
+    .course-see-inside:hover { color: var(--text); }
+
+    /* ── Course meta strip ── */
+    .course-meta-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .course-meta-items {
+      display: flex; align-items: stretch;
+      flex-wrap: wrap;
+    }
+
+    .course-meta-item {
+      flex: 1; min-width: 140px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 5px;
+      padding: clamp(20px, 3vw, 32px) 24px;
+      text-align: center;
+    }
+
+    .meta-val {
+      font-family: var(--fd);
+      font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 800; letter-spacing: -0.02em; line-height: 1;
+      color: var(--accent);
+    }
+
+    .meta-lbl {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-2);
+    }
+
+    .meta-rule { width: 1px; background: var(--border); flex-shrink: 0; }
+
+    /* ── Outcomes — editorial numbered list ── */
+    .course-outcomes-section { border-top: 1px solid var(--border); }
+
+    .outcomes-editorial {
+      display: flex; flex-direction: column;
+    }
+
+    .oe-row {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      align-items: start;
+      gap: 24px;
+      padding: clamp(28px, 4vw, 44px) 0;
+      border-top: 1px solid var(--border);
+      transition: background 0.22s ease;
+    }
+
+    .oe-row:first-child { border-top: none; }
+
+    .oe-n {
+      font-family: var(--fd);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 800; line-height: 1;
+      color: var(--border-2);
+      user-select: none;
+      padding-top: 4px;
+    }
+
+    .oe-body { display: flex; flex-direction: column; gap: 8px; }
+
+    .oe-outcome {
+      font-family: var(--fd);
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 800; text-transform: uppercase;
+      letter-spacing: -0.015em; line-height: 1.05;
+      color: var(--text);
+    }
+
+    .oe-detail {
+      font-size: clamp(13px, 1.4vw, 15px);
+      color: oklch(88% 0.005 278);
+      line-height: 1.7;
+      max-width: 56ch;
+    }
+
+    /* ── Curriculum — phase groupings ── */
+    .curriculum-section { border-top: 1px solid var(--border); }
+
+    .phase-list { display: flex; flex-direction: column; }
+
+    .phase-row {
+      display: grid;
+      grid-template-columns: clamp(160px, 20vw, 240px) 1fr;
+      gap: clamp(24px, 4vw, 56px);
+      padding: clamp(32px, 4.5vw, 52px) 0;
+      border-top: 1px solid var(--border);
+      align-items: start;
+      transition: background 0.22s ease;
+    }
+
+    .phase-row:first-child { border-top: none; }
+
+    .phase-meta { display: flex; flex-direction: column; gap: 6px; }
+
+    .phase-tag {
+      font-size: 10px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .phase-num {
+      font-family: var(--fd);
+      font-size: clamp(52px, 8vw, 96px);
+      font-weight: 800; line-height: 0.88;
+      color: var(--border-2);
+      user-select: none;
+    }
+
+    .phase-chapters {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: oklch(72% 0.012 278);
+    }
+
+    .phase-content { display: flex; flex-direction: column; gap: 14px; padding-top: 6px; }
+
+    .phase-name {
+      font-family: var(--fd);
+      font-size: clamp(22px, 2.8vw, 34px);
+      font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05;
+      color: var(--text);
+    }
+
+    .phase-desc {
+      font-size: clamp(13px, 1.4vw, 15px);
+      color: oklch(88% 0.005 278);
+      line-height: 1.72;
+      max-width: 52ch;
+    }
+
+    .phase-topics {
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+
+    .phase-topic {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: oklch(82% 0.008 278);
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .oe-row { grid-template-columns: 44px 1fr; gap: 16px; }
+      .phase-row { grid-template-columns: 1fr; gap: 14px; }
+      .phase-num { font-size: clamp(44px, 12vw, 72px); }
+      .course-meta-items { flex-direction: column; }
+      .meta-rule { width: 100%; height: 1px; }
+      .course-meta-item { align-items: flex-start; text-align: left; padding: 20px 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .course-hero { justify-content: flex-start; min-height: unset; padding-top: 60px; }
+      .course-hero-inner { flex: none; justify-content: flex-start; padding-top: 20px; padding-bottom: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRP6MZZF"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- ===== NAVBAR ===== -->
+  <div class="navbar-wrap" id="navbar-wrap">
+    <nav class="navbar" id="navbar">
+      <div class="nb-content">
+        <a href="./" class="nb-logo">
+          <picture>
+            <source srcset="./logo-icon.avif" type="image/avif">
+            <img src="./logo-icon.png" alt="" class="nb-logo-icon">
+          </picture>
+          <picture>
+            <source srcset="./logo-wordmark.avif" type="image/avif">
+            <img src="./logo-wordmark.png" alt="The Reel Recipe" class="nb-logo-wordmark">
+          </picture>
+        </a>
+
+        <div class="nb-links">
+          <a href="./#services" class="nb-link">Services</a>
+          <a href="./#work" class="nb-link">Results</a>
+          <a href="./#about" class="nb-link">About</a>
+          <a href="./#contact" class="nb-link">Contact</a>
+          <a href="./course.html" class="nb-link nb-link--courses">Courses</a>
+          <a href="https://airtable.com/appj3aOW7Qep6cPSx/pagvALyDfWmsXf89I/form" target="_blank" rel="noopener noreferrer" class="nb-cta">Enroll Now</a>
+        </div>
+
+        <div class="nb-right-mobile">
+          <button type="button" class="nb-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <svg id="iconMenu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            <svg id="iconX" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mm-header">
+      <picture>
+        <source srcset="./logo-icon.avif" type="image/avif">
+        <img src="./logo-icon.png" alt="" class="mm-logo-icon">
+      </picture>
+      <button type="button" class="mobile-close" onclick="closeMobile()" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-links">
+      <a href="./#services" class="mobile-link" onclick="closeMobile()">Services</a>
+      <a href="./#work" class="mobile-link" onclick="closeMobile()">Results</a>
+      <a href="./#about" class="mobile-link" onclick="closeMobile()">About</a>
+      <a href="./#contact" class="mobile-link" onclick="closeMobile()">Contact</a>
+      <a href="./course.html" class="mobile-link mobile-link--courses" onclick="closeMobile()">Courses</a>
+      <a href="https://airtable.com/appj3aOW7Qep6cPSx/pagvALyDfWmsXf89I/form" target="_blank" rel="noopener noreferrer" class="mobile-cta">Enroll Now</a>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="course-hero">
+      <div class="course-hero-inner">
+
+        <div class="enroll-badge fade-up" style="animation-delay:.2s">
+          <span class="enroll-badge-dot"></span>
+          Now Enrolling
+        </div>
+
+        <h1 class="course-title">
+          <span class="ct-the fade-up" style="animation-delay:.32s">The</span>
+          <span class="ct-reel fade-up" style="animation-delay:.44s">Reel</span>
+          <span class="ct-experience fade-up" style="animation-delay:.54s">Experience</span>
+          <span class="ct-vol fade-up" style="animation-delay:.64s">Vol. 2</span>
+        </h1>
+
+        <div class="course-hero-foot fade-up" style="animation-delay:.8s">
+          <p class="hero-sub">15 chapters on how viral content actually works: what to say, how to structure it, how to shoot and edit it, how to grow. No experience needed</p>
+          <div class="course-format-options">
+
+            <div class="format-card">
+              <div class="format-card-header">
+                <span class="format-label">Physical</span>
+                <span class="seats-alert">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  Limited seats
+                </span>
+              </div>
+              <a href="https://airtable.com/appj3aOW7Qep6cPSx/pagvALyDfWmsXf89I/form" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                Enroll In Physical
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+
+            <div class="format-card">
+              <div class="format-card-header">
+                <span class="format-label">Online</span>
+              </div>
+              <a href="https://airtable.com/appj3aOW7Qep6cPSx/pagvALyDfWmsXf89I/form" target="_blank" rel="noopener noreferrer" class="btn-ghost">
+                Enroll In Online
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+
+          </div>
+
+          <a href="#what-you-get" class="course-see-inside">
+            See what's inside
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== COURSE META STRIP ===== -->
+    <div class="course-meta-strip">
+      <div class="container">
+        <div class="course-meta-items">
+          <div class="course-meta-item scroll-reveal">
+            <span class="meta-val">15</span>
+            <span class="meta-lbl">Chapters</span>
+          </div>
+          <div class="meta-rule" aria-hidden="true"></div>
+          <div class="course-meta-item scroll-reveal" style="transition-delay:.06s">
+            <span class="meta-val">Physical &amp; Online</span>
+            <span class="meta-lbl">Format</span>
+          </div>
+          <div class="meta-rule" aria-hidden="true"></div>
+          <div class="course-meta-item scroll-reveal" style="transition-delay:.12s">
+            <span class="meta-val">Zero</span>
+            <span class="meta-lbl">Experience Required</span>
+          </div>
+          <div class="meta-rule" aria-hidden="true"></div>
+          <div class="course-meta-item scroll-reveal" style="transition-delay:.18s">
+            <span class="meta-val">500M+</span>
+            <span class="meta-lbl">Views by Your Instructors</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== WHAT YOU GET ===== -->
+    <section id="what-you-get" class="section course-outcomes-section">
+      <div class="container">
+
+        <div class="section-head scroll-reveal">
+          <div class="section-label">What You'll Be Able to Do</div>
+          <h2 class="section-title">
+            Six skills<br>
+            <em style="font-style:italic; color:var(--accent)">One Course</em>
+          </h2>
+          <p class="section-sub">Produce, edit, and grow with viral content on any platform, at any budget, starting from zero</p>
+        </div>
+
+        <div class="outcomes-editorial">
+
+          <div class="oe-row scroll-reveal">
+            <span class="oe-n">01</span>
+            <div class="oe-body">
+              <h3 class="oe-outcome">Write a hook that grabs in under 2 seconds</h3>
+              <p class="oe-detail">8 types: Shock, Question, Confession, Data, Visual, Contrast, Challenge, Problem. You'll know exactly which one to use and walk away with your own hooks library</p>
+            </div>
+          </div>
+
+          <div class="oe-row scroll-reveal" style="transition-delay:.06s">
+            <span class="oe-n">02</span>
+            <div class="oe-body">
+              <h3 class="oe-outcome">Engineer content that holds till the last second</h3>
+              <p class="oe-detail">3-act structure, open loops, tension, cliffhangers. You practice these until keeping people watching all the way through feels like second nature</p>
+            </div>
+          </div>
+
+          <div class="oe-row scroll-reveal" style="transition-delay:.1s">
+            <span class="oe-n">03</span>
+            <div class="oe-body">
+              <h3 class="oe-outcome">Pick the right format before you hit record</h3>
+              <p class="oe-detail">Transformation, Reaction, Skit, Vox Pop, Storytelling. You'll know which format fits before you hit record, so your content lands instead of getting skipped</p>
+            </div>
+          </div>
+
+          <div class="oe-row scroll-reveal" style="transition-delay:.14s">
+            <span class="oe-n">04</span>
+            <div class="oe-body">
+              <h3 class="oe-outcome">Edit so nothing is wasted</h3>
+              <p class="oe-detail">No wasted seconds, the right cuts, a visual shift every 3 seconds. The editing habits that keep people watching all the way to the end</p>
+            </div>
+          </div>
+
+          <div class="oe-row scroll-reveal" style="transition-delay:.18s">
+            <span class="oe-n">05</span>
+            <div class="oe-body">
+              <h3 class="oe-outcome">Shoot and light a professional video in any room</h3>
+              <p class="oe-detail">Lighting, camera, framing, B-roll, and feeling comfortable on camera. All of it with whatever gear you already have</p>
+            </div>
+          </div>
+
+          <div class="oe-row scroll-reveal" style="transition-delay:.22s">
+            <span class="oe-n">06</span>
+            <div class="oe-body">
+              <h3 class="oe-outcome">Distribute for reach, not just uploads</h3>
+              <p class="oe-detail">How to upload, cross-post, write titles that get clicked, and make the algorithm work for you. Plus how to make every video feel instantly recognizable as yours</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== THE SYSTEM ===== -->
+    <section id="curriculum" class="section curriculum-section">
+      <div class="container">
+
+        <div class="section-head scroll-reveal">
+          <div class="section-label">The Curriculum</div>
+          <h2 class="section-title">
+            15 chapters<br>
+            <em style="font-style:italic; color:var(--accent)">Five phases</em>
+          </h2>
+          <p class="section-sub">Each phase builds on the last. You leave with a full system, not scattered tips</p>
+        </div>
+
+        <div class="phase-list">
+
+          <div class="phase-row scroll-reveal">
+            <div class="phase-meta">
+              <span class="phase-tag">Phase 01</span>
+              <div class="phase-num">01</div>
+              <span class="phase-chapters">Chapters 1 – 4</span>
+            </div>
+            <div class="phase-content">
+              <h3 class="phase-name">The Science of Virality</h3>
+              <p class="phase-desc">Viral content is not random. You'll learn why people stop scrolling in the first 2 seconds, what keeps them watching, and which beliefs about hashtags and production quality are actually hurting your reach</p>
+              <div class="phase-topics">
+                <span class="phase-topic">Hook architecture</span>
+                <span class="phase-topic">Dopamine cycles</span>
+                <span class="phase-topic">The 2-second rule</span>
+                <span class="phase-topic">Virality myths</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="phase-row scroll-reveal" style="transition-delay:.07s">
+            <div class="phase-meta">
+              <span class="phase-tag">Phase 02</span>
+              <div class="phase-num">02</div>
+              <span class="phase-chapters">Chapters 5 – 8</span>
+            </div>
+            <div class="phase-content">
+              <h3 class="phase-name">Audience, Formula &amp; Tension</h3>
+              <p class="phase-desc">Your audience is a feeling, not an age group. You'll learn the 5 things that make people share, how to build content that keeps them watching, and how to hold their attention right till the end</p>
+              <div class="phase-topics">
+                <span class="phase-topic">Emotional triggers</span>
+                <span class="phase-topic">3-act structure</span>
+                <span class="phase-topic">Open loops</span>
+                <span class="phase-topic">Shareability</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="phase-row scroll-reveal" style="transition-delay:.14s">
+            <div class="phase-meta">
+              <span class="phase-tag">Phase 03</span>
+              <div class="phase-num">03</div>
+              <span class="phase-chapters">Chapters 9 – 10</span>
+            </div>
+            <div class="phase-content">
+              <h3 class="phase-name">Format Selection</h3>
+              <p class="phase-desc">Picking the wrong format kills a good idea. You'll learn what each format is built for, when to use it, and how to build a style people instantly recognize as yours</p>
+              <div class="phase-topics">
+                <span class="phase-topic">Format types</span>
+                <span class="phase-topic">Viewer intent</span>
+                <span class="phase-topic">POV storytelling</span>
+                <span class="phase-topic">Content identity</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="phase-row scroll-reveal" style="transition-delay:.21s">
+            <div class="phase-meta">
+              <span class="phase-tag">Phase 04</span>
+              <div class="phase-num">04</div>
+              <span class="phase-chapters">Chapters 11 – 12</span>
+            </div>
+            <div class="phase-content">
+              <h3 class="phase-name">Editing for Retention</h3>
+              <p class="phase-desc">Editing controls how people feel while watching. You'll learn pacing, cut types, the 3-second shift rule, and how to use text on screen. These choices drive 90% of how long people actually watch</p>
+              <div class="phase-topics">
+                <span class="phase-topic">Pacing</span>
+                <span class="phase-topic">J-cuts &amp; jump cuts</span>
+                <span class="phase-topic">Emotional beats</span>
+                <span class="phase-topic">Text overlays</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="phase-row scroll-reveal" style="transition-delay:.28s">
+            <div class="phase-meta">
+              <span class="phase-tag">Phase 05</span>
+              <div class="phase-num">05</div>
+              <span class="phase-chapters">Chapters 13 – 15</span>
+            </div>
+            <div class="phase-content">
+              <h3 class="phase-name">Production &amp; Distribution</h3>
+              <p class="phase-desc">You don't need a studio. You'll learn to set up light, camera, and sound in any room. Then how to upload, cross-post, and make every video feel like it came from the same brand</p>
+              <div class="phase-topics">
+                <span class="phase-topic">Lighting</span>
+                <span class="phase-topic">Camera basics</span>
+                <span class="phase-topic">Platform optimization</span>
+                <span class="phase-topic">Growth strategy</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ENROLL CTA ===== -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-inner scroll-reveal">
+          <h2 class="cta-hl">
+            No gear.<br>
+            No experience.<br>
+            <em>No excuses.</em>
+          </h2>
+          <p class="cta-sub">15 chapters, 5 phases, one complete system. Built from 500M+ real views</p>
+          <div class="cta-btns">
+            <a href="https://airtable.com/appj3aOW7Qep6cPSx/pagvALyDfWmsXf89I/form" target="_blank" rel="noopener noreferrer" class="btn-dark">
+              Enroll In Physical
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="https://airtable.com/appj3aOW7Qep6cPSx/pagvALyDfWmsXf89I/form" target="_blank" rel="noopener noreferrer" class="btn-outline-dark">
+              Enroll In Online
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <a href="./" class="footer-brand">
+            <picture>
+              <source srcset="./logo-icon.avif" type="image/avif">
+              <img src="./logo-icon.png" alt="" class="footer-icon">
+            </picture>
+            <picture>
+              <source srcset="./logo-wordmark.avif" type="image/avif">
+              <img src="./logo-wordmark.png" alt="The Reel Recipe" class="footer-wm">
+            </picture>
+          </a>
+          <p class="footer-tag">Viral content. Real results</p>
+        </div>
+        <div class="footer-bottom">
+          <nav class="footer-nav">
+            <a href="./#services" class="footer-link">Services</a>
+            <a href="./#about" class="footer-link">About</a>
+            <a href="./#contact" class="footer-link">Contact</a>
+          </nav>
+          <div class="footer-end">
+            <div class="footer-socials">
+              <a href="https://instagram.com/thereelrecipe" target="_blank" rel="noopener noreferrer" class="fsoc" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+              <a href="https://tiktok.com/@thereelrecipe" target="_blank" rel="noopener noreferrer" class="fsoc" aria-label="TikTok">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.42a8.16 8.16 0 004.76 1.52V7.49a4.81 4.81 0 01-1-.8z"/></svg>
+              </a>
+            </div>
+            <p class="footer-copy" id="footerCopy"></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="course.js"></script>
+</body>
+</html>
